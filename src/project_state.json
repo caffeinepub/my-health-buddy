@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Update and improve the “My Health Buddy” app to be simpler, child-friendly, and fully functional, including UI flow simplifications, copy changes, a prominent help button flow, and a working gated “Grown-ups only” settings access.",
+  "architectural_notes": [
+    "Keep the app calm, simple, child-friendly, and easy to understand across all screens and flows.",
+    "Grown-ups only gate should support a fallback path if press-and-hold is not supported (maths-only access)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-rename-the-helper-character-from-amanda-to-luma-everywhere-in-the-app-and-update-the-greeting-copy-to-exactly-hi-i-m-luma-i-help-you-show-how-you-feel",
+      "title": "Rename the helper character from “Amanda” to “Luma” everywhere in the app, and update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-simplify-supportive-wording-by-replacing-the-specified-longer-sentences-with-the-specified-short-phrases-wherever-they-appear-in-the-app-ui",
+      "title": "Simplify supportive wording by replacing the specified longer sentences with the specified short phrases wherever they appear in the app UI.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-first-screen-so-it-only-shows-1-the-logo-2-the-luma-character-and-3-one-large-start-button-move-all-other-menu-options-to-a-separate-next-screen-that-appears-after-start-is-pressed",
+      "title": "Improve the first screen so it only shows: (1) the logo, (2) the Luma character, and (3) one large “Start” button. Move all other menu options to a separate next screen that appears after “Start” is pressed.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-show-this-to-an-adult-button-the-largest-and-most-visually-prominent-button-in-the-entire-app-and-center-it-on-its-screen",
+      "title": "Make the “Show this to an adult” button the largest and most visually prominent button in the entire app, and center it on its screen.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-scrolling-on-the-feelings-selection-page-by-resizing-and-laying-out-the-feeling-option-cards-evenly-so-all-feeling-options-are-visible-on-one-screen-at-once",
+      "title": "Remove scrolling on the feelings selection page by resizing and laying out the feeling option cards evenly so all feeling options are visible on one screen at once.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-location-follow-up-screen-after-the-user-presses-the-main-help-button-the-new-screen-must-ask-where-are-you-and-provide-three-large-buttons-at-school-at-home-outside",
+      "title": "Add a new location follow-up screen after the user presses the main help button. The new screen must ask “Where are you?” and provide three large buttons: “At school”, “At home”, “Outside”.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-grown-ups-only-section-so-it-is-a-real-working-button-that-opens-a-lock-screen-flow-require-the-user-to-press-and-hold-a-star-for-3-seconds-and-then-answer-a-simple-math-question-e-g-7-3-show-the-exact-error-message-try-again-grown-ups-only-on-wrong-answer-and-open-the-settings-page-on-correct-answer-if-press-and-hold-is-not-supported-require-only-the-math-question-before-access",
+      "title": "Fix the “Grown-ups only” section so it is a real, working button that opens a lock screen flow: require the user to press-and-hold a star for 3 seconds and then answer a simple math question (e.g., 7 + 3). Show the exact error message “Try again, grown-ups only” on wrong answer and open the settings page on correct answer. If press-and-hold is not supported, require only the math question before access.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-updated-and-new-screens-maintain-a-calm-simple-child-friendly-presentation-with-short-easy-to-understand-english-ui-text",
+      "title": "Ensure all updated and new screens maintain a calm, simple, child-friendly presentation with short, easy-to-understand English UI text.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Rename helper character from “Amanda” to “Luma” everywhere and update greeting text to: “Hi, I’m Luma. I help you show how you feel.”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Simplify supportive wording by replacing longer sentences with short phrases (e.g., “Let’s tell a grown-up” and “You did the right thing 💛”).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Make “Show this to an adult” the largest, centered, most prominent button in the app.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Remove scrolling on feelings page by fitting all feeling options on one screen via evenly resized cards (all options visible at once).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add location follow-up screen after pressing the help button: question “Where are you?” with buttons At school / At home / Outside.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Simplify first screen to only show Logo, Luma character, and one large Start button; move other menu options to the next screen after Start.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Fix “Grown-ups only” section: make it a working button that opens a lock screen requiring press-and-hold star for 3 seconds then a simple maths question; wrong answer message; fallback to maths-only if press-and-hold unsupported; correct answer opens settings.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "My Health Buddy",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

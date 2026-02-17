@@ -1,0 +1,166 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-rename-the-helper-character-from-amanda-to-luma-everywhere-in-the-app-and-update-the-greeting-copy-to-exactly-hi-i-m-luma-i-help-you-show-how-you-feel",
+      "featureTitle": "Rename the helper character from “Amanda” to “Luma” everywhere in the app, and update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
+      "files": [
+        "frontend/src/pages/AdultMessagePage.tsx",
+        "frontend/src/pages/FeelingConfirmationPage.tsx",
+        "frontend/src/pages/WelcomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-simplify-supportive-wording-by-replacing-the-specified-longer-sentences-with-the-specified-short-phrases-wherever-they-appear-in-the-app-ui",
+      "featureTitle": "Simplify supportive wording by replacing the specified longer sentences with the specified short phrases wherever they appear in the app UI.",
+      "files": [
+        "frontend/src/pages/AdultMessagePage.tsx",
+        "frontend/src/pages/FeelingConfirmationPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-improve-the-first-screen-so-it-only-shows-1-the-logo-2-the-luma-character-and-3-one-large-start-button-move-all-other-menu-options-to-a-separate-next-screen-that-appears-after-start-is-pressed",
+      "featureTitle": "Improve the first screen so it only shows: (1) the logo, (2) the Luma character, and (3) one large “Start” button. Move all other menu options to a separate next screen that appears after “Start” is pressed.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/pages/WelcomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-show-this-to-an-adult-button-the-largest-and-most-visually-prominent-button-in-the-entire-app-and-center-it-on-its-screen",
+      "featureTitle": "Make the “Show this to an adult” button the largest and most visually prominent button in the entire app, and center it on its screen.",
+      "files": [
+        "frontend/src/pages/EnergyCheckPage.tsx",
+        "frontend/src/pages/FeelingConfirmationPage.tsx",
+        "frontend/src/pages/WelcomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-scrolling-on-the-feelings-selection-page-by-resizing-and-laying-out-the-feeling-option-cards-evenly-so-all-feeling-options-are-visible-on-one-screen-at-once",
+      "featureTitle": "Remove scrolling on the feelings selection page by resizing and laying out the feeling option cards evenly so all feeling options are visible on one screen at once.",
+      "files": [
+        "frontend/src/components/ScreenLayout.tsx",
+        "frontend/src/pages/FeelingsButtonPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-new-location-follow-up-screen-after-the-user-presses-the-main-help-button-the-new-screen-must-ask-where-are-you-and-provide-three-large-buttons-at-school-at-home-outside",
+      "featureTitle": "Add a new location follow-up screen after the user presses the main help button. The new screen must ask “Where are you?” and provide three large buttons: “At school”, “At home”, “Outside”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/FeelingConfirmationPage.tsx",
+        "frontend/src/pages/LocationPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-grown-ups-only-section-so-it-is-a-real-working-button-that-opens-a-lock-screen-flow-require-the-user-to-press-and-hold-a-star-for-3-seconds-and-then-answer-a-simple-math-question-e-g-7-3-show-the-exact-error-message-try-again-grown-ups-only-on-wrong-answer-and-open-the-settings-page-on-correct-answer-if-press-and-hold-is-not-supported-require-only-the-math-question-before-access",
+      "featureTitle": "Fix the “Grown-ups only” section so it is a real, working button that opens a lock screen flow: require the user to press-and-hold a star for 3 seconds and then answer a simple math question (e.g., 7 + 3). Show the exact error message “Try again, grown-ups only” on wrong answer and open the settings page on correct answer. If press-and-hold is not supported, require only the math question before access.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/GrownUpsGate.tsx",
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/pages/WelcomePage.tsx",
+        "frontend/src/pages/grownups/GrownUpsLockPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-all-updated-and-new-screens-maintain-a-calm-simple-child-friendly-presentation-with-short-easy-to-understand-english-ui-text",
+      "featureTitle": "Ensure all updated and new screens maintain a calm, simple, child-friendly presentation with short, easy-to-understand English UI text.",
+      "files": [
+        "frontend/src/pages/AdultMessagePage.tsx",
+        "frontend/src/pages/LocationPage.tsx",
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/pages/grownups/GrownUpsLockPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

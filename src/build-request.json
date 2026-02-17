@@ -1,0 +1,165 @@
+{
+  "kind": "build_request",
+  "title": "Simplify My Health Buddy UI flow, rename helper to Luma, add location step, and fix Grown-ups gate",
+  "projectName": "My Health Buddy",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Rename the helper character from “Amanda” to “Luma” everywhere in the app, and update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Change the character name from “Amanda” to Luma everywhere in the app.\nGreeting should say:\n“Hi, I’m Luma. I help you show how you feel.”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No screen shows the name “Amanda”.",
+        "Welcome greeting text matches exactly: “Hi, I’m Luma. I help you show how you feel.”"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Simplify supportive wording by replacing the specified longer sentences with the specified short phrases wherever they appear in the app UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "“Thank you for telling me. Let’s tell a grown-up together.” → “Let’s tell a grown-up”\n“Well done for telling someone. That was a brave thing to do.” → “You did the right thing 💛”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The helper message on the feeling confirmation screen uses “Let’s tell a grown-up”.",
+        "The encouragement shown on the adult message flow uses exactly: “You did the right thing 💛”.",
+        "No remaining UI text contains the two long sentences provided in the request."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Improve the first screen so it only shows: (1) the logo, (2) the Luma character, and (3) one large “Start” button. Move all other menu options to a separate next screen that appears after “Start” is pressed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The first screen should only show:\nLogo\nLuma character\nOne large button: Start Move all other menu options to the next screen after Start is pressed."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On app launch (after splash), the user sees only the logo, the Luma character, and a single large “Start” button (no other menu buttons).",
+        "Pressing “Start” navigates to a new menu screen that contains the previously available options (e.g., feelings, energy check, daily feelings, feel better, and grown-ups access).",
+        "The overall navigation still allows reaching all existing features from the new post-Start menu screen."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Make the “Show this to an adult” button the largest and most visually prominent button in the entire app, and center it on its screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make the “Show this to an adult” button the largest button in the app.\nCenter it on screen and make it stand out more than all other buttons."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the feeling confirmation screen, “Show this to an adult” is centered and visually dominant compared to any other button in the app (larger size and stronger emphasis styling).",
+        "No other screen contains a button that is larger or more visually emphasized than “Show this to an adult”."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Remove scrolling on the feelings selection page by resizing and laying out the feeling option cards evenly so all feeling options are visible on one screen at once.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Fit all feeling options onto one screen without scrolling by resizing cards evenly.\nChildren must see all options at once."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The feelings page shows all feeling options without requiring vertical scrolling on common mobile viewport sizes.",
+        "All feeling option cards are evenly sized and presented in a consistent grid."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add a new location follow-up screen after the user presses the main help button. The new screen must ask “Where are you?” and provide three large buttons: “At school”, “At home”, “Outside”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "After pressing the help button, show a new page asking:\n“Where are you?”\nButtons:\nAt school\nAt home\nOutside"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Pressing “Show this to an adult” navigates to a new location screen instead of directly to the adult message screen.",
+        "The location screen displays the question exactly: “Where are you?”",
+        "The location screen provides exactly three buttons: “At school”, “At home”, “Outside”.",
+        "Selecting any location proceeds to the existing adult message screen flow."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Fix the “Grown-ups only” section so it is a real, working button that opens a lock screen flow: require the user to press-and-hold a star for 3 seconds and then answer a simple math question (e.g., 7 + 3). Show the exact error message “Try again, grown-ups only” on wrong answer and open the settings page on correct answer. If press-and-hold is not supported, require only the math question before access.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make “Grown-ups only” a real working button (not just an image).\nWhen tapped, open a lock screen:\nUser must press and hold the star for 3 seconds\nThen answer a simple maths question (example: 7 + 3)\nWrong answer shows: “Try again, grown-ups only”\nCorrect answer opens the settings page\nIf press-and-hold is not supported, require only the maths question before access."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Tapping “Grown-ups only” opens a dedicated lock UI (not immediate navigation into settings).",
+        "When press-and-hold is supported, the lock UI requires a continuous 3-second hold on a star before showing the math question.",
+        "When press-and-hold is not supported, the lock UI directly shows the math question without requiring hold.",
+        "Submitting a wrong math answer shows exactly: “Try again, grown-ups only” (and does not grant access).",
+        "Submitting the correct math answer grants access and navigates to the grown-ups settings area page."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Ensure all updated and new screens maintain a calm, simple, child-friendly presentation with short, easy-to-understand English UI text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The app must remain calm, simple, child-friendly and easy to understand"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All new/modified UI strings are short, supportive, and in English.",
+        "No new screen introduces dense paragraphs or complex instructions beyond what is necessary for the lock flow."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose them instead).",
+    "Do not edit immutable hook paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Keep backend as a single Motoko actor; only introduce backend changes if strictly required (these UI changes should be achievable fully on the frontend)."
+  ],
+  "nonGoals": [
+    "Add external authentication providers beyond Internet Identity.",
+    "Add external databases or third-party integrations.",
+    "Introduce real-time features (WebSockets/chat/push notifications)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

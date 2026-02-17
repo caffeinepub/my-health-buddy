@@ -1,0 +1,17 @@
+{
+  "name": "My Health Buddy",
+  "short_name": "Health Buddy",
+  "description": "A friendly app to help children express how they feel",
+  "icons": [
+    {
+      "src": "/assets/generated/app-icon.dim_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#D4E8F5",
+  "background_color": "#D4E8F5",
+  "display": "standalone",
+  "start_url": "/"
+}

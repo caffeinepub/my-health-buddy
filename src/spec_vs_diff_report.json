@@ -1,0 +1,58 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-17T08:02:03.366Z",
+  "summary": "Most requested UI-flow changes appear implemented (new Start->Menu flow, location step, prominent adult button, feelings grid, grown-ups lock screen and navigation). One clear copy requirement mismatch is present for the exact Welcome greeting punctuation/text. Several additional non-requested enhancements (PWA/manifest, audio/vibration, theming) were introduced.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
+      "reason": "The Welcome screen greeting text does not match exactly; it uses a straight apostrophe (\"I'm\") instead of the required curly apostrophe (\"I’m\").",
+      "evidence": [
+        "frontend/src/pages/WelcomePage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Progressive Web App (PWA) support via web manifest and related HTML/favicon changes",
+      "reason": "BuildRequest does not ask for PWA/manifest functionality; these are additional platform features beyond the specified UI flow and copy changes.",
+      "evidence": [
+        "frontend/index.html",
+        "frontend/public/site.webmanifest"
+      ]
+    },
+    {
+      "description": "Audio chime playback and device vibration on the adult message screen",
+      "reason": "BuildRequest only specifies UI copy and flow; adding sound/vibration behavior is not requested.",
+      "evidence": [
+        "frontend/src/pages/AdultMessagePage.tsx",
+        "frontend/src/state/preferences.ts"
+      ]
+    },
+    {
+      "description": "Major new global theming/animation system (OKLCH color tokens, new animations) and Tailwind token expansion",
+      "reason": "Not explicitly requested; REQ-8 is about calm/child-friendly text and presentation but does not require introducing a new theming system.",
+      "evidence": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "frontend/src/components/GrownUpsGate.tsx",
+    "frontend/src/components/ScreenLayout.tsx",
+    "frontend/src/pages/AdultMessagePage.tsx",
+    "frontend/src/pages/EnergyCheckPage.tsx",
+    "frontend/src/pages/FeelingConfirmationPage.tsx",
+    "frontend/src/pages/FeelingsButtonPage.tsx",
+    "frontend/src/pages/LocationPage.tsx",
+    "frontend/src/pages/MenuPage.tsx",
+    "frontend/src/pages/WelcomePage.tsx",
+    "frontend/src/pages/grownups/GrownUpsLockPage.tsx",
+    "project_state.json"
+  ]
+}

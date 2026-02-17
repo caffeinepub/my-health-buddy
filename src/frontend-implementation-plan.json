@@ -1,0 +1,219 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "My Health Buddy UI flow updates (Luma rename, Start-first menu, location step, grown-ups lock)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Rename helper character to Luma everywhere and update the welcome greeting to the exact requested sentence.",
+      "acceptanceCriteria": [
+        "No screen shows the name “Amanda”.",
+        "Welcome greeting text matches exactly: “Hi, I’m Luma. I help you show how you feel.”"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/WelcomePage.tsx",
+          "operation": "modify",
+          "description": "Update all helper naming references to “Luma” and replace the greeting copy with exactly: “Hi, I’m Luma. I help you show how you feel.” Keep the screen minimal per the new launch flow. Uses shadcn-ui Button for the Start action; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AdultMessagePage.tsx",
+          "operation": "modify",
+          "description": "Audit and update any helper-name references in this screen’s UI strings to ensure “Amanda” does not appear anywhere. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/FeelingConfirmationPage.tsx",
+          "operation": "modify",
+          "description": "Audit and update any helper-name references in this screen’s UI strings to ensure “Amanda” does not appear anywhere. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Replace the two specified longer supportive sentences with the specified short phrases wherever they appear.",
+      "acceptanceCriteria": [
+        "The helper message on the feeling confirmation screen uses “Let’s tell a grown-up”.",
+        "The encouragement shown on the adult message flow uses exactly: “You did the right thing 💛”.",
+        "No remaining UI text contains the two long sentences provided in the request."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeelingConfirmationPage.tsx",
+          "operation": "modify",
+          "description": "Replace the helper message text with exactly “Let’s tell a grown-up” (and ensure the longer sentence no longer appears). Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AdultMessagePage.tsx",
+          "operation": "modify",
+          "description": "Replace the delayed encouragement copy with exactly: “You did the right thing 💛” and remove the two longer sentences so they no longer appear anywhere on this flow. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Make the first screen logo + Luma + one large Start button; move all other options to a new menu screen shown after Start.",
+      "acceptanceCriteria": [
+        "On app launch (after splash), the user sees only the logo, the Luma character, and a single large “Start” button (no other menu buttons).",
+        "Pressing “Start” navigates to a new menu screen that contains the previously available options (e.g., feelings, energy check, daily feelings, feel better, and grown-ups access).",
+        "The overall navigation still allows reaching all existing features from the new post-Start menu screen."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/WelcomePage.tsx",
+          "operation": "modify",
+          "description": "Simplify the launch screen content to only show the logo (from ScreenLayout), the Luma character image, and a single large “Start” button. Remove the other menu buttons, grown-ups access UI, and disclaimer from this screen. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "create",
+          "description": "Create a post-Start menu screen that lists the previous options (feelings, my energy today, daily feelings, feel better) and provides access to the grown-ups lock flow. Use shadcn-ui Button (and Card if needed) to keep a consistent child-friendly layout; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add and wire a new 'menu' screen into the in-app navigation state machine: Splash -> Welcome; Welcome Start -> Menu; update existing routes so Back actions return to Menu where appropriate while preserving reachability of all features."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Make “Show this to an adult” the largest and most visually prominent button in the app, centered on its screen.",
+      "acceptanceCriteria": [
+        "On the feeling confirmation screen, “Show this to an adult” is centered and visually dominant compared to any other button in the app (larger size and stronger emphasis styling).",
+        "No other screen contains a button that is larger or more visually emphasized than “Show this to an adult”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeelingConfirmationPage.tsx",
+          "operation": "modify",
+          "description": "Center the “Show this to an adult” button and update sizing/emphasis so it is the single most visually dominant button in the app (larger height/width, stronger emphasis styling). Use shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/WelcomePage.tsx",
+          "operation": "modify",
+          "description": "Adjust the Welcome “Start” button styling so it remains large and easy to tap but is still clearly smaller/less emphasized than the “Show this to an adult” button. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/EnergyCheckPage.tsx",
+          "operation": "modify",
+          "description": "Reduce visual dominance of the energy option buttons (currently very large) so none can be considered larger/more emphasized than “Show this to an adult”. Keep them child-friendly and tappable. Uses shadcn-ui Button for Back; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Remove scrolling on the feelings selection page by resizing and evenly laying out feeling cards so all options are visible at once.",
+      "acceptanceCriteria": [
+        "The feelings page shows all feeling options without requiring vertical scrolling on common mobile viewport sizes.",
+        "All feeling option cards are evenly sized and presented in a consistent grid."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeelingsButtonPage.tsx",
+          "operation": "modify",
+          "description": "Rework the feelings grid layout to fit all feeling cards on one screen without vertical scrolling on common mobile sizes: reduce padding/icon sizes as needed, ensure consistent card sizing, and keep a clean grid. Use shadcn-ui Card for the feeling options and shadcn-ui Button for Back; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ScreenLayout.tsx",
+          "operation": "modify",
+          "description": "If needed to meet no-scroll requirements, add a layout option (prop or class behavior) to better allocate vertical space for grid-heavy screens while keeping the overall calm style consistent. Ensure this change does not introduce scrolling regressions on other screens."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Insert a new location screen after the main help button that asks “Where are you?” with exactly three large location buttons.",
+      "acceptanceCriteria": [
+        "Pressing “Show this to an adult” navigates to a new location screen instead of directly to the adult message screen.",
+        "The location screen displays the question exactly: “Where are you?”.",
+        "The location screen provides exactly three buttons: “At school”, “At home”, “Outside”.",
+        "Selecting any location proceeds to the existing adult message screen flow."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LocationPage.tsx",
+          "operation": "create",
+          "description": "Create a new screen that asks exactly “Where are you?” and shows exactly three large buttons: “At school”, “At home”, “Outside”. Selecting any option continues to the existing adult message flow. Use shadcn-ui Button for the three large choices; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add and wire a new 'location' screen into navigation. Update the post-confirmation flow so the Feeling Confirmation 'continue' action goes to Location first, then Location selection proceeds to the existing adult message screen."
+        },
+        {
+          "path": "frontend/src/pages/FeelingConfirmationPage.tsx",
+          "operation": "modify",
+          "description": "Update the continue handler wiring so “Show this to an adult” navigates to the new Location screen rather than directly to the adult message flow. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Make “Grown-ups only” a working button that opens a dedicated lock flow: 3-second star hold (when supported) then a math question; wrong answer shows exact error; correct answer opens settings.",
+      "acceptanceCriteria": [
+        "Tapping “Grown-ups only” opens a dedicated lock UI (not immediate navigation into settings).",
+        "When press-and-hold is supported, the lock UI requires a continuous 3-second hold on a star before showing the math question.",
+        "When press-and-hold is not supported, the lock UI directly shows the math question without requiring hold.",
+        "Submitting a wrong math answer shows exactly: “Try again, grown-ups only” (and does not grant access).",
+        "Submitting the correct math answer grants access and navigates to the grown-ups settings area page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/GrownUpsLockPage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated full-screen lock UI for grown-ups access. Implement a 3-second press-and-hold star step when supported, otherwise skip directly to a simple math question. On wrong answer, show exactly “Try again, grown-ups only” inline in the UI; on correct answer, navigate to the grown-ups settings area. Use shadcn-ui Button and Input for the math challenge UI; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "modify",
+          "description": "Add a real, accessible “Grown-ups only” button in the post-Start menu that navigates to the new dedicated lock UI (do not navigate directly to settings). Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add and wire a new 'grownups-lock' screen into the in-app navigation state machine and ensure success navigates to the existing grown-ups area page while Back returns to the menu."
+        },
+        {
+          "path": "frontend/src/components/GrownUpsGate.tsx",
+          "operation": "modify",
+          "description": "Refactor the existing gating component so it no longer acts as an inline dialog gate on the welcome screen. Either repurpose it for the lock screen’s star-hold/math logic or convert it into a simple trigger UI used by MenuPage to open the dedicated lock screen. Ensure wrong-answer messaging matches exactly “Try again, grown-ups only” when used. Uses shadcn-ui Dialog/Input/Button if retained; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/WelcomePage.tsx",
+          "operation": "modify",
+          "description": "Remove grown-ups access UI from the first screen to comply with the new Start-first flow (grown-ups access must live on the post-Start menu and open the dedicated lock screen). Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Keep all updated/new screens calm, simple, child-friendly, and in short easy English.",
+      "acceptanceCriteria": [
+        "All new/modified UI strings are short, supportive, and in English.",
+        "No new screen introduces dense paragraphs or complex instructions beyond what is necessary for the lock flow."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "modify",
+          "description": "Review and adjust menu labels so they remain short, clear, and child-friendly while still matching existing feature names. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LocationPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the question and button labels are exactly as requested and keep any supporting text minimal and child-friendly. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/grownups/GrownUpsLockPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the lock flow instructions are minimal and clear, avoiding dense text; keep the exact wrong-answer message. Uses shadcn-ui Button/Input; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AdultMessagePage.tsx",
+          "operation": "modify",
+          "description": "Ensure the updated encouragement copy is short and supportive (“You did the right thing 💛”) and no additional dense text is introduced. Uses shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}
