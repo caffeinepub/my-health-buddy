@@ -1,32 +1,106 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Build a child-friendly app called \"My Health Buddy\" with an \"About the Creator\" page and consistent copyright/disclaimer copy across the UI.",
-  "architectural_notes": [],
+  "summary": "Build a children’s app (“My Health Buddy”) and update legal/privacy documentation for app store compliance.",
+  "architectural_notes": [
+    "Privacy Policy must state app collects no personal data, works fully offline, stores selections locally with reset option, has no ads/analytics/SDK tracking, and includes COPPA/GDPR-K, medical disclaimer, change notice, contact email, and ownership notice."
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-about-the-creator-page-to-display-the-exact-user-provided-child-voice-text-using-the-creator-name-gabriella-gayle-and-include-the-bottom-copyright-line-2026-gabriella-gayle-all-rights-reserved-the-typography-must-remain-small-calm-and-child-friendly",
-      "title": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
+      "id": "feature-replace-the-existing-privacy-safety-grown-ups-page-content-with-a-legally-compliant-privacy-policy-page-for-a-children-s-app-keeping-a-gentle-friendly-tone-and-short-parent-readable-paragraphs-suitable-for-worldwide-use",
+      "title": "Replace the existing “Privacy & Safety” grown-ups page content with a legally compliant Privacy Policy page for a children’s app, keeping a gentle, friendly tone and short, parent-readable paragraphs, suitable for worldwide use.",
       "reqIds": [
-        "REQ-1"
+        "REQ-5"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-app-wide-footer-copyright-line-on-every-screen-to-read-exactly-2026-gabriella-gayle-my-health-buddy-and-the-luma-character-are-original-creations-all-rights-reserved-keep-the-footer-text-small-calm-and-child-friendly",
-      "title": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
+      "id": "feature-update-the-page-title-to-exactly-privacy-policy-my-health-buddy-and-render-the-policy-as-clearly-separated-sections-with-headings-in-this-exact-order-no-personal-data-collection-offline-use-children-s-privacy-data-storage-medical-disclaimer-third-party-services-changes-contact-ownership",
+      "title": "Update the page title to exactly “Privacy Policy – My Health Buddy” and render the policy as clearly separated sections with headings in this exact order: No Personal Data Collection, Offline Use, Children’s Privacy, Data Storage, Medical Disclaimer, Third-Party Services, Changes, Contact, Ownership.",
       "reqIds": [
-        "REQ-2"
+        "REQ-6"
       ],
       "version": 1
     },
     {
-      "id": "feature-ensure-the-footer-includes-an-about-the-creator-link-button-on-every-screen-that-navigates-to-the-about-the-creator-page-if-already-on-the-about-the-creator-page-the-link-button-may-be-disabled-or-still-present-but-must-not-break-navigation",
-      "title": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
+      "id": "feature-in-the-no-personal-data-collection-section-state-clearly-that-the-app-does-not-collect-names-email-location-contacts-photos-microphone-recordings-health-data-analytics-identifiers-cookies-or-tracking-using-plain-language",
+      "title": "In the “No Personal Data Collection” section, state clearly that the app does NOT collect names, email, location, contacts, photos, microphone recordings, health data, analytics, identifiers, cookies, or tracking, using plain language.",
       "reqIds": [
-        "REQ-3"
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-offline-use-section-explain-that-the-app-works-completely-offline-and-nothing-leaves-the-device",
+      "title": "In the “Offline Use” section, explain that the app works completely offline and nothing leaves the device.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-children-s-privacy-section-state-the-app-is-designed-for-children-with-parent-teacher-carer-supervision-and-complies-with-coppa-and-gdpr-k-because-no-personal-data-is-collected",
+      "title": "In the “Children’s Privacy” section, state the app is designed for children with parent/teacher/carer supervision and complies with COPPA and GDPR-K because no personal data is collected.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-data-storage-section-explain-that-selections-remain-locally-on-the-device-and-can-be-reset-anytime",
+      "title": "In the “Data Storage” section, explain that selections remain locally on the device and can be reset anytime.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-medical-disclaimer-section-clarify-the-app-is-only-a-communication-tool-and-not-medical-advice",
+      "title": "In the “Medical Disclaimer” section, clarify the app is only a communication tool and not medical advice.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-third-party-services-section-state-there-are-no-ads-no-analytics-sdks-no-tracking-and-no-third-party-sharing",
+      "title": "In the “Third-Party Services” section, state there are no ads, no analytics SDKs, no tracking, and no third-party sharing.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-changes-section-state-the-policy-will-update-if-app-features-change",
+      "title": "In the “Changes” section, state the policy will update if app features change.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-contact-section-include-the-placeholder-email-address-exactly-support-myhealthbuddy-app",
+      "title": "In the “Contact” section, include the placeholder email address exactly: support@myhealthbuddy.app",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-ownership-section-include-exactly-gabriella-gayle-my-health-buddy-and-luma-character-are-original-creations",
+      "title": "In the “Ownership” section, include exactly: “© Gabriella Gayle — My Health Buddy and Luma character are original creations.”",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-grown-ups-navigation-label-that-opens-the-privacy-page-to-match-the-new-page-purpose-by-changing-the-button-text-from-privacy-safety-to-privacy-policy-in-the-grown-ups-area",
+      "title": "Update the grown-ups navigation label that opens the privacy page to match the new page purpose by changing the button text from “Privacy & Safety” to “Privacy Policy” in the Grown-ups Area.",
+      "reqIds": [
+        "REQ-16"
       ],
       "version": 1
     }
@@ -34,40 +108,8 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add an \"About the Creator\" page with provided child-voice text and bottom copyright line",
+      "summary": "Replace existing “Privacy & Safety” page with a legally compliant Privacy Policy for a children’s app (Google Play + Apple Kids Category), using specified sections and friendly tone.",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add a footer link on every screen to the \"About the Creator\" page",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add a small footer on every screen with the provided global copyright/original creations statement",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Add a short copyright/originality line inside the Safety or Privacy page",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Ensure all added text is small, calm, and child-friendly in styling",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-9",
-      "summary": "Add (or ensure) the following short copyright/originality line appears inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly: \"The Luma character, wording, and design of this app are original and protected.\"",
-      "reqIds": [
-        "REQ-4"
-      ],
       "status": "pending"
     }
   ],

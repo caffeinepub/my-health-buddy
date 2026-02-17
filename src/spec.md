@@ -1,12 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add/adjust the “About the Creator” page copy and ensure consistent, child-friendly copyright/originality text in the footer and Privacy & Safety content across the app.
+**Goal:** Replace the current “Privacy & Safety” grown-ups page with an app-store compliant Privacy Policy for *My Health Buddy* that is legally clear, parent-readable, friendly in tone, and suitable for worldwide use.
 
 **Planned changes:**
-- Update the About the Creator page to display the exact user-provided child-voice text (including the 💛) using the name “Gabriella Gayle”, and include the bottom line: “© 2026 Gabriella Gayle. All rights reserved.” with small, calm, child-friendly typography.
-- Update the app-wide footer on every screen to show exactly: “© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.” with small, calm, child-friendly styling.
-- Ensure the footer includes an “About the Creator” link/button on every screen that navigates to the About the Creator page (and does not break when used from the About page).
-- Add (or ensure) the sentence “The Luma character, wording, and design of this app are original and protected.” inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly.
+- Fully rewrite `frontend/src/pages/grownups/PrivacySafetyPage.tsx` to be a Privacy Policy page titled exactly “Privacy Policy – My Health Buddy”, removing all previous “Privacy & Safety” copy.
+- Render the policy as clearly separated sections with headings in this exact order: No Personal Data Collection, Offline Use, Children’s Privacy, Data Storage, Medical Disclaimer, Third-Party Services, Changes, Contact, Ownership.
+- Ensure the policy text explicitly includes: no personal data collection (listing names, email, location, contacts, photos, microphone recordings, health data, analytics, identifiers, cookies, tracking), fully offline use with nothing leaving the device, COPPA and GDPR-K compliance rationale (because no personal data is collected), local-only storage with reset-anytime, medical communication tool disclaimer (not medical advice), no ads/analytics SDKs/tracking/third-party sharing, update notice for feature changes, contact email `support@myhealthbuddy.app`, and the exact ownership line provided.
+- Update `frontend/src/pages/grownups/GrownUpsAreaPage.tsx` so the button that navigates to `grownups-privacy` is labeled “Privacy Policy” (route/destination unchanged).
 
-**User-visible outcome:** Users can open “About the Creator” from the footer on any screen, read the creator message exactly as written (including the copyright line), see the updated copyright footer everywhere, and find the added originality statement on the Privacy & Safety page.
+**User-visible outcome:** In the Grown-ups area, users see a “Privacy Policy” button that opens a clearly sectioned, app-store-ready Privacy Policy page for *My Health Buddy*.

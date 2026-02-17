@@ -1,71 +1,183 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "My Health Buddy — About the Creator copy + global footer copyright updates",
+  "title": "Replace Privacy & Safety page with app-store compliant Privacy Policy (My Health Buddy)",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Update About the Creator page to show the exact child-voice copy for Gabriella Gayle with the required bottom copyright line, keeping typography small/calm/child-friendly.",
+      "id": "REQ-5",
+      "summary": "Fully rewrite the existing Grown-ups “Privacy & Safety” page into a worldwide, app-store compliant Privacy Policy for a children’s app with friendly, parent-readable English.",
       "acceptanceCriteria": [
-        "Navigating to the About the Creator page shows the heading \"About the Creator\" and the exact paragraphs as provided by the user, including the 💛 character.",
-        "The About the Creator page includes a bottom line that reads exactly: \"© 2026 Gabriella Gayle. All rights reserved.\"",
-        "The text on the About the Creator page is styled in a small, calm, child-friendly way (e.g., small font size and gentle contrast consistent with existing app styling)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AboutCreatorPage.tsx",
-          "operation": "modify",
-          "description": "Replace placeholder name and existing copy with the exact user-provided child-voice text using \"Gabriella Gayle\", and set the bottom line to exactly \"© 2026 Gabriella Gayle. All rights reserved.\" Keep existing small/calm typography (e.g., text-sm/text-xs, gentle contrast) consistent with the app. Uses shadcn-ui Card/Button for layout and navigation; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Update the app-wide footer copyright line across all screens to the exact 2026 Gabriella Gayle wording, keeping it small/calm/child-friendly.",
-      "acceptanceCriteria": [
-        "Every screen that shows the footer displays exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\"",
-        "The footer text remains small and visually calm (consistent with existing footer styling)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/AppFooter.tsx",
-          "operation": "modify",
-          "description": "Update the footer copyright text to exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Maintain small, calm, child-friendly styling (keep text-xs, gentle opacity/contrast). Uses shadcn-ui Button for the footer action; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Ensure the footer includes an About the Creator link/button on every screen that navigates to the About the Creator page without errors.",
-      "acceptanceCriteria": [
-        "From the footer on each screen, the user can activate an \"About the Creator\" link/button to reach the About the Creator page.",
-        "The About the Creator link/button does not cause errors when used from any screen (including the About the Creator page itself, if shown there)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Ensure the About Creator navigation handler is provided for the About Creator screen as well (so its footer includes the About the Creator link/button consistently), and wire any updated AboutCreatorPage props accordingly."
-        },
-        {
-          "path": "frontend/src/pages/AboutCreatorPage.tsx",
-          "operation": "modify",
-          "description": "Accept and forward an optional onNavigateToAboutCreator prop to ScreenLayout so the footer's \"About the Creator\" button/link is present on this screen too (it may remain enabled or be safely no-op/disabled without breaking navigation). Uses existing ScreenLayout + shadcn-ui Button/Card; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add/ensure the exact originality sentence appears in the Privacy & Safety page content with small/calm/child-friendly styling.",
-      "acceptanceCriteria": [
-        "The Privacy & Safety page contains the exact sentence: \"The Luma character, wording, and design of this app are original and protected.\"",
-        "The added line is visually small and calm (e.g., uses small text styling consistent with other fine-print content)."
+        "The existing page at frontend/src/pages/grownups/PrivacySafetyPage.tsx is fully rewritten (old content removed) into a Privacy Policy intended for a children’s app on Google Play and Apple App Store Kids Category.",
+        "Language is simple enough for parents to understand, with short paragraphs and a child-safe friendly tone while remaining legally clear.",
+        "Text does not mention or rely on any region-specific assumptions and is written for worldwide use."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
           "operation": "modify",
-          "description": "Ensure the Privacy & Safety page includes the exact sentence \"The Luma character, wording, and design of this app are original and protected.\" and keep it styled as small/calm fine print (e.g., text-sm or smaller with gentle contrast) consistent with the rest of the app. Uses shadcn-ui Card/Button for page structure; verify the component's usage instructions before implementing."
+          "description": "Replace all existing “Privacy & Safety” copy with a complete Privacy Policy for a children’s app in English, using short, friendly, legally clear paragraphs and avoiding region-specific assumptions. Use existing shadcn-ui Card/Button components already imported for readable sectioning; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Set the Privacy Policy page title and render the policy as distinct, scannable sections with headings in the exact required order.",
+      "acceptanceCriteria": [
+        "ScreenLayout title for the page is exactly “Privacy Policy – My Health Buddy”.",
+        "All required sections appear as distinct headings in the exact order specified.",
+        "Each section is visually separated (e.g., separate cards or consistent spacing/dividers) and easy to scan."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "Update ScreenLayout title to exactly “Privacy Policy – My Health Buddy” and restructure content into clearly separated sections (e.g., Card blocks or consistent dividers/spacing) with headings in this exact order: No Personal Data Collection, Offline Use, Children’s Privacy, Data Storage, Medical Disclaimer, Third-Party Services, Changes, Contact, Ownership. Use existing shadcn-ui Card for consistent visual separation; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Ensure the “No Personal Data Collection” section explicitly lists all specified data types as not collected, in plain language.",
+      "acceptanceCriteria": [
+        "The section explicitly lists all the following as not collected: names, email, location, contacts, photos, microphone recordings, health data, analytics, identifiers, cookies, tracking.",
+        "The wording is unambiguous that no collection occurs."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “No Personal Data Collection” section, explicitly state the app does NOT collect: names, email, location, contacts, photos, microphone recordings, health data, analytics, identifiers, cookies, or tracking—using plain, unambiguous wording. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Explain in the “Offline Use” section that the app works fully offline and nothing leaves the device.",
+      "acceptanceCriteria": [
+        "The policy states the app works completely offline.",
+        "The policy states that nothing leaves the device."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Offline Use” section, state clearly that the app works completely offline and that nothing leaves the device. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add a “Children’s Privacy” section stating intended supervised use and COPPA/GDPR-K compliance rationale due to no personal data collection.",
+      "acceptanceCriteria": [
+        "The policy explicitly mentions COPPA and GDPR-K compliance rationale as “because no personal data is collected”.",
+        "The policy states the app is designed for children with parent/teacher/carer supervision."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Children’s Privacy” section, state the app is designed for children with parent/teacher/carer supervision and that it complies with COPPA and GDPR-K because no personal data is collected. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Explain in the “Data Storage” section that selections stay on-device and can be reset anytime.",
+      "acceptanceCriteria": [
+        "The policy states selections are stored locally on the device only.",
+        "The policy states saved selections/data can be reset at any time."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Data Storage” section, explain that selections remain locally on the device only and can be reset anytime. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Clarify in “Medical Disclaimer” that the app is a communication tool and not medical advice.",
+      "acceptanceCriteria": [
+        "The policy states the app is a communication tool.",
+        "The policy states it is not medical advice."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Medical Disclaimer” section, state that the app is a communication tool and not medical advice, keeping the tone gentle and clear. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "State in “Third-Party Services” that there are no ads, analytics SDKs, tracking, or third-party sharing.",
+      "acceptanceCriteria": [
+        "The section explicitly states: no ads, no analytics SDKs, no tracking, and no third-party sharing."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Third-Party Services” section, explicitly state: no ads, no analytics SDKs, no tracking, and no third-party sharing. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Include a “Changes” section noting the policy may update if app features change.",
+      "acceptanceCriteria": [
+        "The policy includes a Changes section stating the policy may be updated if features change."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "Add/update the “Changes” section to state the policy may be updated if app features change. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Include the exact support email in the “Contact” section.",
+      "acceptanceCriteria": [
+        "The Contact section includes the email address exactly “support@myhealthbuddy.app”. "
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Contact” section, include the placeholder email address exactly: support@myhealthbuddy.app. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Include the exact ownership line in the “Ownership” section.",
+      "acceptanceCriteria": [
+        "The Ownership section includes the provided ownership line exactly as written, including the em dash."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "operation": "modify",
+          "description": "In the “Ownership” section, include exactly: “© Gabriella Gayle — My Health Buddy and Luma character are original creations.” Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Update the Grown-ups Area navigation button label to “Privacy Policy” while keeping navigation target unchanged.",
+      "acceptanceCriteria": [
+        "In frontend/src/pages/grownups/GrownUpsAreaPage.tsx, the button that navigates to 'grownups-privacy' is labeled “Privacy Policy”.",
+        "Navigation destination remains 'grownups-privacy' and continues to work."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/grownups/GrownUpsAreaPage.tsx",
+          "operation": "modify",
+          "description": "Change the button text for the navigation action that calls onNavigate('grownups-privacy') from “Privacy & Safety” to “Privacy Policy”, without altering the navigation destination. Verify the component's usage instructions before implementing."
         }
       ]
     }

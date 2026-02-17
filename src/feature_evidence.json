@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-about-the-creator-page-to-display-the-exact-user-provided-child-voice-text-using-the-creator-name-gabriella-gayle-and-include-the-bottom-copyright-line-2026-gabriella-gayle-all-rights-reserved-the-typography-must-remain-small-calm-and-child-friendly",
-      "featureTitle": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
+      "featureId": "feature-replace-the-existing-privacy-safety-grown-ups-page-content-with-a-legally-compliant-privacy-policy-page-for-a-children-s-app-keeping-a-gentle-friendly-tone-and-short-parent-readable-paragraphs-suitable-for-worldwide-use",
+      "featureTitle": "Replace the existing “Privacy & Safety” grown-ups page content with a legally compliant Privacy Policy page for a children’s app, keeping a gentle, friendly tone and short, parent-readable paragraphs, suitable for worldwide use.",
       "files": [
-        "frontend/src/pages/AboutCreatorPage.tsx"
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-5"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-app-wide-footer-copyright-line-on-every-screen-to-read-exactly-2026-gabriella-gayle-my-health-buddy-and-the-luma-character-are-original-creations-all-rights-reserved-keep-the-footer-text-small-calm-and-child-friendly",
-      "featureTitle": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
+      "featureId": "feature-update-the-page-title-to-exactly-privacy-policy-my-health-buddy-and-render-the-policy-as-clearly-separated-sections-with-headings-in-this-exact-order-no-personal-data-collection-offline-use-children-s-privacy-data-storage-medical-disclaimer-third-party-services-changes-contact-ownership",
+      "featureTitle": "Update the page title to exactly “Privacy Policy – My Health Buddy” and render the policy as clearly separated sections with headings in this exact order: No Personal Data Collection, Offline Use, Children’s Privacy, Data Storage, Medical Disclaimer, Third-Party Services, Changes, Contact, Ownership.",
       "files": [
-        "frontend/src/components/AppFooter.tsx"
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -33,16 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-6"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-the-footer-includes-an-about-the-creator-link-button-on-every-screen-that-navigates-to-the-about-the-creator-page-if-already-on-the-about-the-creator-page-the-link-button-may-be-disabled-or-still-present-but-must-not-break-navigation",
-      "featureTitle": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
+      "featureId": "feature-in-the-no-personal-data-collection-section-state-clearly-that-the-app-does-not-collect-names-email-location-contacts-photos-microphone-recordings-health-data-analytics-identifiers-cookies-or-tracking-using-plain-language",
+      "featureTitle": "In the “No Personal Data Collection” section, state clearly that the app does NOT collect names, email, location, contacts, photos, microphone recordings, health data, analytics, identifiers, cookies, or tracking, using plain language.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/pages/AboutCreatorPage.tsx"
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -52,7 +51,169 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-offline-use-section-explain-that-the-app-works-completely-offline-and-nothing-leaves-the-device",
+      "featureTitle": "In the “Offline Use” section, explain that the app works completely offline and nothing leaves the device.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-children-s-privacy-section-state-the-app-is-designed-for-children-with-parent-teacher-carer-supervision-and-complies-with-coppa-and-gdpr-k-because-no-personal-data-is-collected",
+      "featureTitle": "In the “Children’s Privacy” section, state the app is designed for children with parent/teacher/carer supervision and complies with COPPA and GDPR-K because no personal data is collected.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-data-storage-section-explain-that-selections-remain-locally-on-the-device-and-can-be-reset-anytime",
+      "featureTitle": "In the “Data Storage” section, explain that selections remain locally on the device and can be reset anytime.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-medical-disclaimer-section-clarify-the-app-is-only-a-communication-tool-and-not-medical-advice",
+      "featureTitle": "In the “Medical Disclaimer” section, clarify the app is only a communication tool and not medical advice.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-third-party-services-section-state-there-are-no-ads-no-analytics-sdks-no-tracking-and-no-third-party-sharing",
+      "featureTitle": "In the “Third-Party Services” section, state there are no ads, no analytics SDKs, no tracking, and no third-party sharing.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-changes-section-state-the-policy-will-update-if-app-features-change",
+      "featureTitle": "In the “Changes” section, state the policy will update if app features change.",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-contact-section-include-the-placeholder-email-address-exactly-support-myhealthbuddy-app",
+      "featureTitle": "In the “Contact” section, include the placeholder email address exactly: support@myhealthbuddy.app",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-ownership-section-include-exactly-gabriella-gayle-my-health-buddy-and-luma-character-are-original-creations",
+      "featureTitle": "In the “Ownership” section, include exactly: “© Gabriella Gayle — My Health Buddy and Luma character are original creations.”",
+      "files": [
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-grown-ups-navigation-label-that-opens-the-privacy-page-to-match-the-new-page-purpose-by-changing-the-button-text-from-privacy-safety-to-privacy-policy-in-the-grown-ups-area",
+      "featureTitle": "Update the grown-ups navigation label that opens the privacy page to match the new page purpose by changing the button text from “Privacy & Safety” to “Privacy Policy” in the Grown-ups Area.",
+      "files": [
+        "frontend/src/pages/grownups/GrownUpsAreaPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
       ],
       "confidence": "high"
     }

@@ -120,7 +120,7 @@ export default function GrownUpsAreaPage({ onNavigate, onBack, onNavigateToSafet
             onClick={() => onNavigate('grownups-privacy')}
             className="w-full h-14 text-lg font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl justify-start px-6"
           >
-            Privacy & Safety
+            Privacy Policy
           </Button>
         </div>
       </div>
