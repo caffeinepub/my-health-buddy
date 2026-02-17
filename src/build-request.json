@@ -1,105 +1,88 @@
 {
   "kind": "build_request",
-  "title": "Update Safety, Privacy, and Grown-ups copy across key screens",
+  "title": "Add About the Creator page copy and app-wide footer copyright text",
   "projectName": "My Health Buddy",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the Safety Notice page to include: (1) an added emergency guidance paragraph block that says: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"; and (2) an added age range line that says: \"Designed for children ages 4–12 with adult supervision.\"",
+      "text": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Add in the emergency guidance section If you are in immediate danger, call your local emergency number \nIn many countries this is 112 or 911.\nAsk a grown-up to help you call.  \nAdd age range “Designed for children ages 4–12 with adult supervision.” to Safety Notice page."
+          "Add a new page called About the Creator and link it in the footer of every screen.\nThe page should display this text written in a child voice:\nAbout the Creator\nHi, I’m [Gabriella Gayle] and I’m 9 years old.\nI created My Health Buddy because I have  health issue so I have to visit hospital a lot and sometimes it is hard to explain how my body feels.\nI wanted to help children like me show their feelings quickly so trusted adults can understand and help.\nThis app was my idea and I helped design how it works.\nThank you for using my app 💛\nAt the bottom add:\n© 2026 [Gabriella Gayle]. All rights reserved.\n...\nKeep all text small, calm and child-friendly."
         ]
       },
       "acceptanceCriteria": [
-        "On frontend/src/pages/SafetyNoticePage.tsx, the Emergency Guidance section includes the three new sentences exactly as provided (including 112/911).",
-        "On frontend/src/pages/SafetyNoticePage.tsx, the page includes the exact line: “Designed for children ages 4–12 with adult supervision.”",
-        "All new user-facing text on the Safety Notice page is in English."
+        "Navigating to the About the Creator page shows the heading \"About the Creator\" and the exact paragraphs as provided by the user, including the 💛 character.",
+        "The About the Creator page includes a bottom line that reads exactly: \"© 2026 Gabriella Gayle. All rights reserved.\"",
+        "The text on the About the Creator page is styled in a small, calm, child-friendly way (e.g., small font size and gentle contrast consistent with existing app styling)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”",
+      "text": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Add line “The app works fully offline and does not send information anywhere.” to Privacy page."
+          "Also add a small footer on every screen showing:\n© 2026 [Gabriella Gayle]. My Health Buddy and the Luma character are original creations. All rights reserved.\nKeep all text small, calm and child-friendly."
         ]
       },
       "acceptanceCriteria": [
-        "On frontend/src/pages/grownups/PrivacySafetyPage.tsx, the exact sentence “The app works fully offline and does not send information anywhere.” appears in the rendered content.",
-        "The sentence is visible in normal page flow (not hidden behind an interaction)."
+        "Every screen that shows the footer displays exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\"",
+        "The footer text remains small and visually calm (consistent with existing footer styling)."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Shorten the home (main menu) screen disclaimer text to only: “Not medical advice.”",
+      "text": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Shorten home screen disclaimer to only “Not medical advice.”"
+          "Add a new page called About the Creator and link it in the footer of every screen."
         ]
       },
       "acceptanceCriteria": [
-        "When viewing the Menu screen (frontend/src/pages/MenuPage.tsx), the bottom disclaimer displayed via ScreenLayout is exactly “Not medical advice.”",
-        "This change does not unintentionally remove or alter disclaimers on other screens unless they are also part of the Menu screen UI."
+        "From the footer on each screen, the user can activate an \"About the Creator\" link/button to reach the About the Creator page.",
+        "The About the Creator link/button does not cause errors when used from any screen (including the About the Creator page itself, if shown there)."
       ]
     },
     {
       "id": "REQ-4",
-      "text": "Update the grown-ups entry point label on the Menu screen to: “Parents, Teachers & Caregivers Only”.",
+      "text": "Add (or ensure) the following short copyright/originality line appears inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly: \"The Luma character, wording, and design of this app are original and protected.\"",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Update  label to Parents, Teachers & Caregivers Only."
+          "Add a short copyright line inside the Safety or Privacy page:\nThe Luma character, wording, and design of this app are original and protected.\nKeep all text small, calm and child-friendly."
         ]
       },
       "acceptanceCriteria": [
-        "On frontend/src/pages/MenuPage.tsx, the grown-ups access button label text is exactly “Parents, Teachers & Caregivers Only”.",
-        "The label is visible without needing to navigate away from the Menu screen."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Update the help message copy to: “Show this to a trusted adult”.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Also update help message to Show this to a trusted adult"
-        ]
-      },
-      "acceptanceCriteria": [
-        "On the screen where the child is prompted to show their selected feeling to an adult (frontend/src/pages/FeelingConfirmationPage.tsx), the help message shown to the child uses the exact text: “Show this to a trusted adult”.",
-        "Any existing call-to-action text on that screen that currently says “Show this to an adult” is updated to match “Show this to a trusted adult”, so the UI is consistent."
+        "The Privacy & Safety page contains the exact sentence: \"The Luma character, wording, and design of this app are original and protected.\"",
+        "The added line is visually small and calm (e.g., uses small text styling consistent with other fine-print content)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui (shadcn UI components are read-only).",
-    "Do not modify immutable hook/bootstrap files (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
-    "Backend is single-actor Motoko; no backend changes are required for copy-only updates."
+    "Do not edit files under frontend/src/components/ui (shadcn components are read-only in this environment).",
+    "Keep all user-facing text in English, and use the exact copyright wording provided by the user.",
+    "Do not introduce any new backend storage or services; this change is frontend-only."
   ],
   "nonGoals": [
-    "No new authentication, accounts, or network/data-sync features.",
-    "No changes to navigation structure beyond what is needed to display the updated copy.",
-    "No backend canister methods or storage changes."
+    "Adding new authentication, accounts, or data collection.",
+    "Changing the app’s overall navigation model beyond adding/ensuring the About the Creator footer link.",
+    "Creating or modifying any images or illustrations."
   ],
   "imageRequirements": {
     "required": [],

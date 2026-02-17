@@ -4,11 +4,12 @@ import ScreenLayout from '../components/ScreenLayout';
 interface WelcomePageProps {
   onStart: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function WelcomePage({ onStart, onNavigateToSafety }: WelcomePageProps) {
+export default function WelcomePage({ onStart, onNavigateToSafety, onNavigateToAboutCreator }: WelcomePageProps) {
   return (
-    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="flex flex-col items-center space-y-8">
         {/* Luma character */}
         <div className="w-48 h-48">

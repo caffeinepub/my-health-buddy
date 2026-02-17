@@ -16,6 +16,7 @@ import TeacherQuickGuidePage from './pages/grownups/TeacherQuickGuidePage';
 import AboutPage from './pages/grownups/AboutPage';
 import PrivacySafetyPage from './pages/grownups/PrivacySafetyPage';
 import SafetyNoticePage from './pages/SafetyNoticePage';
+import AboutCreatorPage from './pages/AboutCreatorPage';
 
 type Screen = 
   | 'splash'
@@ -34,7 +35,8 @@ type Screen =
   | 'grownups-teacher'
   | 'grownups-about'
   | 'grownups-privacy'
-  | 'safety-notice';
+  | 'safety-notice'
+  | 'about-creator';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('splash');
@@ -63,25 +65,30 @@ function App() {
     navigateTo(previousScreen);
   };
 
+  const handleNavigateToAboutCreator = () => {
+    navigateTo('about-creator');
+  };
+
   return (
     <div className="min-h-screen">
-      {currentScreen === 'splash' && <SplashScreen onComplete={() => navigateTo('welcome')} />}
-      {currentScreen === 'welcome' && <WelcomePage onStart={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'menu' && <MenuPage onNavigate={navigateTo} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'feelings' && <FeelingsButtonPage onFeelingSelected={handleFeelingSelected} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'confirmation' && <FeelingConfirmationPage feeling={selectedFeeling} onContinue={() => navigateTo('location')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'location' && <LocationPage onLocationSelected={handleLocationSelected} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'adult-message' && <AdultMessagePage onComplete={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'energy-check' && <EnergyCheckPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'tracker' && <DailyFeelingsTrackerPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'feel-better' && <FeelBetterPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-lock' && <GrownUpsLockPage onSuccess={() => navigateTo('grownups-area')} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-area' && <GrownUpsAreaPage onNavigate={navigateTo} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-parents' && <ForParentsTeachersPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-teacher' && <TeacherQuickGuidePage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-about' && <AboutPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'grownups-privacy' && <PrivacySafetyPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} />}
-      {currentScreen === 'safety-notice' && <SafetyNoticePage onBack={handleSafetyNoticeBack} />}
+      {currentScreen === 'splash' && <SplashScreen onComplete={() => navigateTo('welcome')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'welcome' && <WelcomePage onStart={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'menu' && <MenuPage onNavigate={navigateTo} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'feelings' && <FeelingsButtonPage onFeelingSelected={handleFeelingSelected} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'confirmation' && <FeelingConfirmationPage feeling={selectedFeeling} onContinue={() => navigateTo('location')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'location' && <LocationPage onLocationSelected={handleLocationSelected} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'adult-message' && <AdultMessagePage onComplete={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'energy-check' && <EnergyCheckPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'tracker' && <DailyFeelingsTrackerPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'feel-better' && <FeelBetterPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-lock' && <GrownUpsLockPage onSuccess={() => navigateTo('grownups-area')} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-area' && <GrownUpsAreaPage onNavigate={navigateTo} onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-parents' && <ForParentsTeachersPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-teacher' && <TeacherQuickGuidePage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-about' && <AboutPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'grownups-privacy' && <PrivacySafetyPage onBack={() => navigateTo('grownups-area')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'safety-notice' && <SafetyNoticePage onBack={handleSafetyNoticeBack} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
+      {currentScreen === 'about-creator' && <AboutCreatorPage onBack={() => navigateTo('menu')} onNavigateToSafety={() => navigateTo('safety-notice')} onNavigateToAboutCreator={handleNavigateToAboutCreator} />}
     </div>
   );
 }

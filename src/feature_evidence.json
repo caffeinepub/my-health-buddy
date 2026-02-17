@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-safety-notice-page-to-include-1-an-added-emergency-guidance-paragraph-block-that-says-if-you-are-in-immediate-danger-call-your-local-emergency-number-followed-by-in-many-countries-this-is-112-or-911-followed-by-ask-a-grown-up-to-help-you-call-and-2-an-added-age-range-line-that-says-designed-for-children-ages-4-12-with-adult-supervision",
-      "featureTitle": "Update the Safety Notice page to include: (1) an added emergency guidance paragraph block that says: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"; and (2) an added age range line that says: \"Designed for children ages 4–12 with adult supervision.\"",
+      "featureId": "feature-update-the-about-the-creator-page-to-display-the-exact-user-provided-child-voice-text-using-the-creator-name-gabriella-gayle-and-include-the-bottom-copyright-line-2026-gabriella-gayle-all-rights-reserved-the-typography-must-remain-small-calm-and-child-friendly",
+      "featureTitle": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
       "files": [
-        "frontend/src/pages/SafetyNoticePage.tsx"
+        "frontend/src/pages/AboutCreatorPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -20,10 +20,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-privacy-safety-page-to-add-the-exact-line-the-app-works-fully-offline-and-does-not-send-information-anywhere",
-      "featureTitle": "Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”",
+      "featureId": "feature-update-the-app-wide-footer-copyright-line-on-every-screen-to-read-exactly-2026-gabriella-gayle-my-health-buddy-and-the-luma-character-are-original-creations-all-rights-reserved-keep-the-footer-text-small-calm-and-child-friendly",
+      "featureTitle": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
       "files": [
-        "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+        "frontend/src/components/AppFooter.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -38,11 +38,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-shorten-the-home-main-menu-screen-disclaimer-text-to-only-not-medical-advice",
-      "featureTitle": "Shorten the home (main menu) screen disclaimer text to only: “Not medical advice.”",
+      "featureId": "feature-ensure-the-footer-includes-an-about-the-creator-link-button-on-every-screen-that-navigates-to-the-about-the-creator-page-if-already-on-the-about-the-creator-page-the-link-button-may-be-disabled-or-still-present-but-must-not-break-navigation",
+      "featureTitle": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
       "files": [
-        "frontend/src/components/ScreenLayout.tsx",
-        "frontend/src/pages/MenuPage.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AboutCreatorPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -53,42 +53,6 @@
       ],
       "testIds": [
         "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-grown-ups-entry-point-label-on-the-menu-screen-to-parents-teachers-caregivers-only",
-      "featureTitle": "Update the grown-ups entry point label on the Menu screen to: “Parents, Teachers & Caregivers Only”.",
-      "files": [
-        "frontend/src/pages/MenuPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-help-message-copy-to-show-this-to-a-trusted-adult",
-      "featureTitle": "Update the help message copy to: “Show this to a trusted adult”.",
-      "files": [
-        "frontend/src/pages/FeelingConfirmationPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
       ],
       "confidence": "high"
     }

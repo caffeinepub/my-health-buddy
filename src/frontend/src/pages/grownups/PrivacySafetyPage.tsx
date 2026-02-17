@@ -6,11 +6,12 @@ import { ArrowLeft } from 'lucide-react';
 interface PrivacySafetyPageProps {
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function PrivacySafetyPage({ onBack, onNavigateToSafety }: PrivacySafetyPageProps) {
+export default function PrivacySafetyPage({ onBack, onNavigateToSafety, onNavigateToAboutCreator }: PrivacySafetyPageProps) {
   return (
-    <ScreenLayout title="Privacy & Safety" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout title="Privacy & Safety" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}
@@ -71,6 +72,13 @@ export default function PrivacySafetyPage({ onBack, onNavigateToSafety }: Privac
           </p>
           <p className="text-app-text/80 leading-relaxed">
             If you have concerns about a child's health or wellbeing, please consult appropriate healthcare or safeguarding professionals.
+          </p>
+        </Card>
+
+        <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
+          <h2 className="text-xl font-bold text-app-text">Original creation</h2>
+          <p className="text-app-text/80 text-sm leading-relaxed">
+            The Luma character, wording, and design of this app are original and protected.
           </p>
         </Card>
 

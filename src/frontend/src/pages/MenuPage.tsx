@@ -23,14 +23,15 @@ type Screen =
 interface MenuPageProps {
   onNavigate: (screen: Screen) => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function MenuPage({ onNavigate, onNavigateToSafety }: MenuPageProps) {
+export default function MenuPage({ onNavigate, onNavigateToSafety, onNavigateToAboutCreator }: MenuPageProps) {
   return (
     <ScreenLayout 
-      showDisclaimer={true} 
-      disclaimerText="Not medical advice."
+      showDisclaimer={true}
       onNavigateToSafety={onNavigateToSafety}
+      onNavigateToAboutCreator={onNavigateToAboutCreator}
     >
       <div className="flex flex-col items-center space-y-6">
         {/* Luma character */}

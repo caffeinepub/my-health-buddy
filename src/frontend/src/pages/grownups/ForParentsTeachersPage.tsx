@@ -6,11 +6,12 @@ import { ArrowLeft } from 'lucide-react';
 interface ForParentsTeachersPageProps {
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function ForParentsTeachersPage({ onBack, onNavigateToSafety }: ForParentsTeachersPageProps) {
+export default function ForParentsTeachersPage({ onBack, onNavigateToSafety, onNavigateToAboutCreator }: ForParentsTeachersPageProps) {
   return (
-    <ScreenLayout title="For Parents & Teachers" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout title="For Parents & Teachers" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}

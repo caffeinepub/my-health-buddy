@@ -1,25 +1,30 @@
 import { ReactNode } from 'react';
+import AppFooter from './AppFooter';
 
 interface ScreenLayoutProps {
   title?: string;
+  subtitle?: string;
   children: ReactNode;
   helperMessage?: string;
   showDisclaimer?: boolean;
   disclaimerText?: string;
   noScroll?: boolean;
   onNavigateToSafety?: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
 export default function ScreenLayout({ 
   title, 
+  subtitle,
   children, 
   helperMessage, 
   showDisclaimer = true, 
   disclaimerText,
   noScroll = false, 
-  onNavigateToSafety 
+  onNavigateToSafety,
+  onNavigateToAboutCreator
 }: ScreenLayoutProps) {
-  const defaultDisclaimer = "This app helps children show how you feel. It does not give medical advice.";
+  const defaultDisclaimer = "Not medical advice";
   const displayDisclaimer = disclaimerText || defaultDisclaimer;
 
   return (
@@ -33,10 +38,15 @@ export default function ScreenLayout({
         />
       </div>
 
-      {/* Title */}
+      {/* Title and subtitle */}
       {title && (
-        <div className="pt-2 pb-4 px-6">
+        <div className="pt-2 pb-4 px-6 space-y-2">
           <h1 className="text-2xl font-bold text-app-text text-center">{title}</h1>
+          {subtitle && (
+            <p className="text-center text-app-text/70 text-base leading-relaxed">
+              {subtitle}
+            </p>
+          )}
         </div>
       )}
 
@@ -46,7 +56,7 @@ export default function ScreenLayout({
       </div>
 
       {/* Helper message, disclaimer, and footer at bottom */}
-      <div className="pb-8 px-6 space-y-3">
+      <div className="pb-4 px-6 space-y-3">
         {helperMessage && (
           <p className="text-center text-app-text/80 text-base leading-relaxed">
             {helperMessage}
@@ -68,6 +78,9 @@ export default function ScreenLayout({
           </div>
         )}
       </div>
+
+      {/* App-wide footer */}
+      <AppFooter onNavigateToAboutCreator={onNavigateToAboutCreator} />
     </div>
   );
 }

@@ -6,9 +6,10 @@ import { ArrowLeft } from 'lucide-react';
 interface EnergyCheckPageProps {
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function EnergyCheckPage({ onBack, onNavigateToSafety }: EnergyCheckPageProps) {
+export default function EnergyCheckPage({ onBack, onNavigateToSafety, onNavigateToAboutCreator }: EnergyCheckPageProps) {
   const [energy, setEnergy] = useState<'full' | 'okay' | 'low'>('okay');
 
   const energyOptions = [
@@ -18,7 +19,7 @@ export default function EnergyCheckPage({ onBack, onNavigateToSafety }: EnergyCh
   ];
 
   return (
-    <ScreenLayout title="How much energy?" helperMessage="Tap how much energy you have right now." onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout title="How much energy?" helperMessage="Tap how much energy you have right now." onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="space-y-8">
         {/* Back button */}
         <Button

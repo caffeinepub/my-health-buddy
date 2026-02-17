@@ -7,11 +7,17 @@ interface FeelingConfirmationPageProps {
   feeling: string;
   onContinue: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function FeelingConfirmationPage({ feeling, onContinue, onNavigateToSafety }: FeelingConfirmationPageProps) {
+export default function FeelingConfirmationPage({ feeling, onContinue, onNavigateToSafety, onNavigateToAboutCreator }: FeelingConfirmationPageProps) {
   return (
-    <ScreenLayout helperMessage="Show this to a trusted adult" onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout 
+      title={feeling}
+      subtitle="It's okay — I can help you 💛"
+      onNavigateToSafety={onNavigateToSafety}
+      onNavigateToAboutCreator={onNavigateToAboutCreator}
+    >
       <div className="flex flex-col items-center space-y-8">
         {/* Luma */}
         <div className="w-32 h-32">
@@ -22,20 +28,15 @@ export default function FeelingConfirmationPage({ feeling, onContinue, onNavigat
           />
         </div>
 
-        {/* Selected feeling */}
-        <div className="text-center">
-          <p className="text-2xl font-bold text-app-text">
-            {feeling}
-          </p>
-        </div>
-
         {/* Emergency guidance */}
         <Card className="bg-app-important/10 border-2 border-app-important/30 rounded-2xl p-4 max-w-md">
           <div className="flex items-start space-x-3">
             <AlertCircle className="w-5 h-5 text-app-important flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-app-text/80 leading-relaxed">
-              If you feel very unwell or in danger, tell a grown-up right now.
-            </p>
+            <div className="space-y-2">
+              <p className="text-sm text-app-text/80 leading-relaxed">
+                If you feel very sick, cannot breathe, or are unsafe, call your local emergency number (for example 999 or 911) or ask a trusted adult to help you.
+              </p>
+            </div>
           </div>
         </Card>
 

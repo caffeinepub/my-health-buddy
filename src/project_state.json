@@ -1,48 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Content and copy updates for Safety Notice, Privacy, and home screen disclaimers aimed at a child-focused app with adult supervision guidance.",
+  "summary": "Build a child-friendly app called \"My Health Buddy\" with an \"About the Creator\" page and consistent copyright/disclaimer copy across the UI.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-safety-notice-page-to-include-1-an-added-emergency-guidance-paragraph-block-that-says-if-you-are-in-immediate-danger-call-your-local-emergency-number-followed-by-in-many-countries-this-is-112-or-911-followed-by-ask-a-grown-up-to-help-you-call-and-2-an-added-age-range-line-that-says-designed-for-children-ages-4-12-with-adult-supervision",
-      "title": "Update the Safety Notice page to include: (1) an added emergency guidance paragraph block that says: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"; and (2) an added age range line that says: \"Designed for children ages 4–12 with adult supervision.\"",
+      "id": "feature-update-the-about-the-creator-page-to-display-the-exact-user-provided-child-voice-text-using-the-creator-name-gabriella-gayle-and-include-the-bottom-copyright-line-2026-gabriella-gayle-all-rights-reserved-the-typography-must-remain-small-calm-and-child-friendly",
+      "title": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-privacy-safety-page-to-add-the-exact-line-the-app-works-fully-offline-and-does-not-send-information-anywhere",
-      "title": "Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”",
+      "id": "feature-update-the-app-wide-footer-copyright-line-on-every-screen-to-read-exactly-2026-gabriella-gayle-my-health-buddy-and-the-luma-character-are-original-creations-all-rights-reserved-keep-the-footer-text-small-calm-and-child-friendly",
+      "title": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-shorten-the-home-main-menu-screen-disclaimer-text-to-only-not-medical-advice",
-      "title": "Shorten the home (main menu) screen disclaimer text to only: “Not medical advice.”",
+      "id": "feature-ensure-the-footer-includes-an-about-the-creator-link-button-on-every-screen-that-navigates-to-the-about-the-creator-page-if-already-on-the-about-the-creator-page-the-link-button-may-be-disabled-or-still-present-but-must-not-break-navigation",
+      "title": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-grown-ups-entry-point-label-on-the-menu-screen-to-parents-teachers-caregivers-only",
-      "title": "Update the grown-ups entry point label on the Menu screen to: “Parents, Teachers & Caregivers Only”.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-help-message-copy-to-show-this-to-a-trusted-adult",
-      "title": "Update the help message copy to: “Show this to a trusted adult”.",
-      "reqIds": [
-        "REQ-5"
       ],
       "version": 1
     }
@@ -50,36 +34,43 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add Emergency Guidance section to Safety Notice page (call local emergency number; 112/911; ask a grown-up to help)",
+      "summary": "Add an \"About the Creator\" page with provided child-voice text and bottom copyright line",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Add age range line to Safety Notice page: “Designed for children ages 4–12 with adult supervision.”",
+      "summary": "Add a footer link on every screen to the \"About the Creator\" page",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-3",
-      "summary": "Add Privacy page line: “The app works fully offline and does not send information anywhere.”",
+      "summary": "Add a small footer on every screen with the provided global copyright/original creations statement",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-4",
-      "summary": "Shorten home screen disclaimer to only: “Not medical advice.”",
+      "summary": "Add a short copyright/originality line inside the Safety or Privacy page",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-5",
-      "summary": "Update label to “Parents, Teachers & Caregivers Only” and help message to “Show this to a trusted adult”",
+      "summary": "Ensure all added text is small, calm, and child-friendly in styling",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add (or ensure) the following short copyright/originality line appears inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly: \"The Luma character, wording, and design of this app are original and protected.\"",
+      "reqIds": [
+        "REQ-4"
+      ],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
   "projectName": "My Health Buddy",
   "clarification_mode": "instant",
   "clarification_rounds": 0

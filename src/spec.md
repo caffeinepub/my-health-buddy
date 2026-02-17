@@ -1,13 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Update safety, privacy, and grown-ups related copy across key screens for clearer guidance and consistency.
+**Goal:** Add/adjust the “About the Creator” page copy and ensure consistent, child-friendly copyright/originality text in the footer and Privacy & Safety content across the app.
 
 **Planned changes:**
-- Update the Safety Notice page to add an Emergency Guidance paragraph block with the exact three sentences provided, and add the exact age range line: “Designed for children ages 4–12 with adult supervision.”
-- Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”
-- On the Menu (home) screen, shorten the disclaimer to exactly: “Not medical advice.”
-- On the Menu screen, update the grown-ups entry point label to exactly: “Parents, Teachers & Caregivers Only”.
-- On the Feeling Confirmation screen, update the help/call-to-action message to exactly: “Show this to a trusted adult”.
+- Update the About the Creator page to display the exact user-provided child-voice text (including the 💛) using the name “Gabriella Gayle”, and include the bottom line: “© 2026 Gabriella Gayle. All rights reserved.” with small, calm, child-friendly typography.
+- Update the app-wide footer on every screen to show exactly: “© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.” with small, calm, child-friendly styling.
+- Ensure the footer includes an “About the Creator” link/button on every screen that navigates to the About the Creator page (and does not break when used from the About page).
+- Add (or ensure) the sentence “The Luma character, wording, and design of this app are original and protected.” inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly.
 
-**User-visible outcome:** Users will see updated, clearer safety and privacy messaging, a simplified home disclaimer, a more specific grown-ups entry label, and a consistent “trusted adult” prompt when sharing selected feelings.
+**User-visible outcome:** Users can open “About the Creator” from the footer on any screen, read the creator message exactly as written (including the copyright line), see the updated copyright footer everywhere, and find the added originality statement on the Privacy & Safety page.

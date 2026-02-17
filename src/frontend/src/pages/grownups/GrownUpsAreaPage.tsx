@@ -30,9 +30,10 @@ interface GrownUpsAreaPageProps {
   onNavigate: (screen: Screen) => void;
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function GrownUpsAreaPage({ onNavigate, onBack, onNavigateToSafety }: GrownUpsAreaPageProps) {
+export default function GrownUpsAreaPage({ onNavigate, onBack, onNavigateToSafety, onNavigateToAboutCreator }: GrownUpsAreaPageProps) {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
@@ -57,7 +58,7 @@ export default function GrownUpsAreaPage({ onNavigate, onBack, onNavigateToSafet
   };
 
   return (
-    <ScreenLayout title="Grown-ups Area" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout title="Grown-ups Area" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}

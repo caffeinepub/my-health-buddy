@@ -1,86 +1,71 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "My Health Buddy — Copy updates for Safety, Privacy, Menu, and Confirmation screens",
+  "title": "My Health Buddy — About the Creator copy + global footer copyright updates",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add emergency guidance paragraph block and age-range line to the Safety Notice page.",
+      "summary": "Update About the Creator page to show the exact child-voice copy for Gabriella Gayle with the required bottom copyright line, keeping typography small/calm/child-friendly.",
       "acceptanceCriteria": [
-        "On frontend/src/pages/SafetyNoticePage.tsx, the Emergency Guidance section includes the three new sentences exactly as provided (including 112/911).",
-        "On frontend/src/pages/SafetyNoticePage.tsx, the page includes the exact line: “Designed for children ages 4–12 with adult supervision.”",
-        "All new user-facing text on the Safety Notice page is in English."
+        "Navigating to the About the Creator page shows the heading \"About the Creator\" and the exact paragraphs as provided by the user, including the 💛 character.",
+        "The About the Creator page includes a bottom line that reads exactly: \"© 2026 Gabriella Gayle. All rights reserved.\"",
+        "The text on the About the Creator page is styled in a small, calm, child-friendly way (e.g., small font size and gentle contrast consistent with existing app styling)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/SafetyNoticePage.tsx",
+          "path": "frontend/src/pages/AboutCreatorPage.tsx",
           "operation": "modify",
-          "description": "Update rendered copy on the Safety Notice page: (1) in the “Emergency Guidance” section, add a new paragraph block containing exactly these three sentences (with the same wording and numbers): \"If you are in immediate danger, call your local emergency number\" then \"In many countries this is 112 or 911.\" then \"Ask a grown-up to help you call.\"; and (2) add the exact age-range line: “Designed for children ages 4–12 with adult supervision.”"
+          "description": "Replace placeholder name and existing copy with the exact user-provided child-voice text using \"Gabriella Gayle\", and set the bottom line to exactly \"© 2026 Gabriella Gayle. All rights reserved.\" Keep existing small/calm typography (e.g., text-sm/text-xs, gentle contrast) consistent with the app. Uses shadcn-ui Card/Button for layout and navigation; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add the offline/no-sending statement to the Privacy & Safety page.",
+      "summary": "Update the app-wide footer copyright line across all screens to the exact 2026 Gabriella Gayle wording, keeping it small/calm/child-friendly.",
       "acceptanceCriteria": [
-        "On frontend/src/pages/grownups/PrivacySafetyPage.tsx, the exact sentence “The app works fully offline and does not send information anywhere.” appears in the rendered content.",
-        "The sentence is visible in normal page flow (not hidden behind an interaction)."
+        "Every screen that shows the footer displays exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\"",
+        "The footer text remains small and visually calm (consistent with existing footer styling)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+          "path": "frontend/src/components/AppFooter.tsx",
           "operation": "modify",
-          "description": "Insert the exact sentence “The app works fully offline and does not send information anywhere.” into the normal, always-visible content flow of the Privacy & Safety page (e.g., within an existing card body near the privacy/offline explanation)."
+          "description": "Update the footer copyright text to exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Maintain small, calm, child-friendly styling (keep text-xs, gentle opacity/contrast). Uses shadcn-ui Button for the footer action; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Change the Menu screen disclaimer to display only “Not medical advice.” without affecting other screens’ disclaimers.",
+      "summary": "Ensure the footer includes an About the Creator link/button on every screen that navigates to the About the Creator page without errors.",
       "acceptanceCriteria": [
-        "When viewing the Menu screen (frontend/src/pages/MenuPage.tsx), the bottom disclaimer displayed via ScreenLayout is exactly “Not medical advice.”",
-        "This change does not unintentionally remove or alter disclaimers on other screens unless they are also part of the Menu screen UI."
+        "From the footer on each screen, the user can activate an \"About the Creator\" link/button to reach the About the Creator page.",
+        "The About the Creator link/button does not cause errors when used from any screen (including the About the Creator page itself, if shown there)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ScreenLayout.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Add an optional prop (e.g., disclaimerText) that allows a caller to override the default disclaimer copy when showDisclaimer is true; keep the existing default disclaimer text unchanged for screens that do not pass the override."
+          "description": "Ensure the About Creator navigation handler is provided for the About Creator screen as well (so its footer includes the About the Creator link/button consistently), and wire any updated AboutCreatorPage props accordingly."
         },
         {
-          "path": "frontend/src/pages/MenuPage.tsx",
+          "path": "frontend/src/pages/AboutCreatorPage.tsx",
           "operation": "modify",
-          "description": "Update MenuPage to pass a disclaimer override to ScreenLayout so the rendered bottom disclaimer on the Menu screen is exactly “Not medical advice.” (and only the Menu screen changes)."
+          "description": "Accept and forward an optional onNavigateToAboutCreator prop to ScreenLayout so the footer's \"About the Creator\" button/link is present on this screen too (it may remain enabled or be safely no-op/disabled without breaking navigation). Uses existing ScreenLayout + shadcn-ui Button/Card; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-4",
-      "summary": "Update the grown-ups entry label on the Menu screen to “Parents, Teachers & Caregivers Only”.",
+      "summary": "Add/ensure the exact originality sentence appears in the Privacy & Safety page content with small/calm/child-friendly styling.",
       "acceptanceCriteria": [
-        "On frontend/src/pages/MenuPage.tsx, the grown-ups access button label text is exactly “Parents, Teachers & Caregivers Only”.",
-        "The label is visible without needing to navigate away from the Menu screen."
+        "The Privacy & Safety page contains the exact sentence: \"The Luma character, wording, and design of this app are original and protected.\"",
+        "The added line is visually small and calm (e.g., uses small text styling consistent with other fine-print content)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/MenuPage.tsx",
+          "path": "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
           "operation": "modify",
-          "description": "Replace the grown-ups access button label text so it renders exactly: “Parents, Teachers & Caregivers Only” on the Menu screen."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Update Feeling Confirmation screen help/call-to-action copy to “Show this to a trusted adult”.",
-      "acceptanceCriteria": [
-        "On the screen where the child is prompted to show their selected feeling to an adult (frontend/src/pages/FeelingConfirmationPage.tsx), the help message shown to the child uses the exact text: “Show this to a trusted adult”.",
-        "Any existing call-to-action text on that screen that currently says “Show this to an adult” is updated to match “Show this to a trusted adult”, so the UI is consistent."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/FeelingConfirmationPage.tsx",
-          "operation": "modify",
-          "description": "Update FeelingConfirmationPage copy so both the helper message (passed to ScreenLayout) and the primary call-to-action button text use the exact text: “Show this to a trusted adult” (replacing any existing “Show this to an adult” wording for consistency)."
+          "description": "Ensure the Privacy & Safety page includes the exact sentence \"The Luma character, wording, and design of this app are original and protected.\" and keep it styled as small/calm fine print (e.g., text-sm or smaller with gentle contrast) consistent with the rest of the app. Uses shadcn-ui Card/Button for page structure; verify the component's usage instructions before implementing."
         }
       ]
     }

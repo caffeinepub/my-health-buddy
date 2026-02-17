@@ -8,9 +8,10 @@ interface GrownUpsLockPageProps {
   onSuccess: () => void;
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function GrownUpsLockPage({ onSuccess, onBack, onNavigateToSafety }: GrownUpsLockPageProps) {
+export default function GrownUpsLockPage({ onSuccess, onBack, onNavigateToSafety, onNavigateToAboutCreator }: GrownUpsLockPageProps) {
   const [stage, setStage] = useState<'hold' | 'math'>('hold');
   const [isHolding, setIsHolding] = useState(false);
   const [holdProgress, setHoldProgress] = useState(0);
@@ -82,7 +83,7 @@ export default function GrownUpsLockPage({ onSuccess, onBack, onNavigateToSafety
   const skipHold = 'ontouchstart' in window && stage === 'hold';
 
   return (
-    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="flex flex-col items-center space-y-8">
         {/* Back button */}
         <div className="w-full max-w-md">

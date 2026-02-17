@@ -1,71 +1,58 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-17T09:16:36.841Z",
+  "generatedAt": "2026-02-17T11:53:00.046Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 4,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the Safety Notice page to include: (1) an added emergency guidance paragraph block that says: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"; and (2) an added age range line that says: \"Designed for children ages 4–12 with adult supervision.\"",
+        "summary": "Update the \"About the Creator\" page to display the exact user-provided child-voice text using the creator name \"Gabriella Gayle\" and include the bottom copyright line \"© 2026 Gabriella Gayle. All rights reserved.\" The typography must remain small, calm, and child-friendly.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/SafetyNoticePage.tsx"
+          "frontend/src/pages/AboutCreatorPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/SafetyNoticePage.tsx"
+          "frontend/src/pages/AboutCreatorPage.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”",
+        "summary": "Update the app-wide footer copyright line on every screen to read exactly: \"© 2026 Gabriella Gayle. My Health Buddy and the Luma character are original creations. All rights reserved.\" Keep the footer text small, calm, and child-friendly.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+          "frontend/src/components/AppFooter.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
+          "frontend/src/components/AppFooter.tsx"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Shorten the home (main menu) screen disclaimer text to only: “Not medical advice.”",
+        "summary": "Ensure the footer includes an \"About the Creator\" link/button on every screen that navigates to the About the Creator page (if already on the About the Creator page, the link/button may be disabled or still present but must not break navigation).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ScreenLayout.tsx",
-          "frontend/src/pages/MenuPage.tsx"
+          "frontend/src/App.tsx",
+          "frontend/src/pages/AboutCreatorPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/ScreenLayout.tsx",
-          "frontend/src/pages/MenuPage.tsx"
+          "frontend/src/App.tsx",
+          "frontend/src/pages/AboutCreatorPage.tsx"
         ]
       },
       {
         "id": "REQ-4",
-        "summary": "Update the grown-ups entry point label on the Menu screen to: “Parents, Teachers & Caregivers Only”.",
-        "status": "implemented",
+        "summary": "Add (or ensure) the following short copyright/originality line appears inside the Privacy & Safety (or Safety) page content, styled small, calm, and child-friendly: \"The Luma character, wording, and design of this app are original and protected.\"",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/pages/MenuPage.tsx"
+          "frontend/src/pages/grownups/PrivacySafetyPage.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/MenuPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Update the help message copy to: “Show this to a trusted adult”.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/FeelingConfirmationPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/FeelingConfirmationPage.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
@@ -74,11 +61,9 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/ScreenLayout.tsx",
-    "frontend/src/pages/FeelingConfirmationPage.tsx",
-    "frontend/src/pages/MenuPage.tsx",
-    "frontend/src/pages/SafetyNoticePage.tsx",
-    "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AppFooter.tsx",
+    "frontend/src/pages/AboutCreatorPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

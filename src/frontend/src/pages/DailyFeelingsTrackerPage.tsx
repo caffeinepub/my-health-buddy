@@ -8,9 +8,10 @@ import { addTrackerEntry, getRecentEntries, type TrackerEntry } from '../state/t
 interface DailyFeelingsTrackerPageProps {
   onBack: () => void;
   onNavigateToSafety: () => void;
+  onNavigateToAboutCreator?: () => void;
 }
 
-export default function DailyFeelingsTrackerPage({ onBack, onNavigateToSafety }: DailyFeelingsTrackerPageProps) {
+export default function DailyFeelingsTrackerPage({ onBack, onNavigateToSafety, onNavigateToAboutCreator }: DailyFeelingsTrackerPageProps) {
   const [recentEntries, setRecentEntries] = useState<TrackerEntry[]>([]);
   const [justAdded, setJustAdded] = useState(false);
 
@@ -47,7 +48,7 @@ export default function DailyFeelingsTrackerPage({ onBack, onNavigateToSafety }:
   };
 
   return (
-    <ScreenLayout title="Daily feelings" helperMessage="How are you feeling today?" onNavigateToSafety={onNavigateToSafety}>
+    <ScreenLayout title="Daily feelings" helperMessage="How are you feeling today?" onNavigateToSafety={onNavigateToSafety} onNavigateToAboutCreator={onNavigateToAboutCreator}>
       <div className="space-y-8">
         {/* Back button */}
         <Button
@@ -59,44 +60,46 @@ export default function DailyFeelingsTrackerPage({ onBack, onNavigateToSafety }:
           Go back
         </Button>
 
-        {/* Success message */}
-        {justAdded && (
-          <div className="bg-app-button rounded-2xl p-4 text-center animate-fade-in">
-            <p className="text-app-text font-medium">Thank you for sharing! 💚</p>
-          </div>
-        )}
-
-        {/* Feeling options */}
-        <div className="flex flex-col space-y-4 max-w-md mx-auto">
+        {/* Feeling selection */}
+        <div className="flex justify-center space-x-4">
           {feelings.map((feeling) => (
             <button
               key={feeling.value}
               onClick={() => handleFeelingSelect(feeling.value)}
-              className="h-20 bg-app-card hover:bg-app-button rounded-3xl border-2 border-app-text/10 hover:border-app-text/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center space-x-4"
+              className="flex flex-col items-center space-y-2 p-4 rounded-2xl bg-app-card hover:bg-app-button/20 transition-all hover:scale-105 active:scale-95 border-2 border-app-text/10"
             >
-              <span className="text-4xl">{feeling.emoji}</span>
-              <span className="text-xl font-bold text-app-text">{feeling.label}</span>
+              <span className="text-5xl">{feeling.emoji}</span>
+              <span className="text-sm font-medium text-app-text">{feeling.label}</span>
             </button>
           ))}
         </div>
 
+        {/* Confirmation message */}
+        {justAdded && (
+          <p className="text-center text-app-text/80 animate-fade-in">
+            Saved! 💛
+          </p>
+        )}
+
         {/* Recent entries */}
         {recentEntries.length > 0 && (
-          <div className="max-w-md mx-auto pt-4">
-            <h3 className="text-lg font-semibold text-app-text mb-3 text-center">Your recent feelings</h3>
-            <div className="space-y-2">
+          <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 max-w-md mx-auto">
+            <h3 className="text-lg font-bold text-app-text mb-4">Recent feelings</h3>
+            <div className="space-y-3">
               {recentEntries.map((entry, index) => {
                 const feeling = feelings.find(f => f.value === entry.feeling);
                 return (
-                  <Card key={index} className="bg-app-card border-app-text/10 rounded-2xl p-4 flex items-center justify-between">
-                    <span className="text-2xl">{feeling?.emoji}</span>
-                    <span className="text-app-text font-medium">{feeling?.label}</span>
-                    <span className="text-app-text/60 text-sm">{formatDate(entry.date)}</span>
-                  </Card>
+                  <div key={index} className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">{feeling?.emoji}</span>
+                      <span className="text-app-text/80">{feeling?.label}</span>
+                    </div>
+                    <span className="text-sm text-app-text/60">{formatDate(entry.date)}</span>
+                  </div>
                 );
               })}
             </div>
-          </div>
+          </Card>
         )}
       </div>
     </ScreenLayout>
