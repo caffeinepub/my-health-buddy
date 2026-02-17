@@ -1,36 +1,45 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
 import ScreenLayout from '../../components/ScreenLayout';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Volume2, VolumeX, RotateCcw } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { getPreferences, setPreferences } from '../../state/preferences';
 import { resetTracker } from '../../state/tracker';
-import { useState } from 'react';
 
 type Screen = 
   | 'splash'
   | 'welcome'
+  | 'menu'
   | 'feelings'
   | 'confirmation'
+  | 'location'
   | 'adult-message'
   | 'energy-check'
   | 'tracker'
   | 'feel-better'
+  | 'grownups-lock'
   | 'grownups-area'
   | 'grownups-parents'
   | 'grownups-teacher'
   | 'grownups-about'
-  | 'grownups-privacy';
+  | 'grownups-privacy'
+  | 'safety-notice';
 
 interface GrownUpsAreaPageProps {
   onNavigate: (screen: Screen) => void;
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function GrownUpsAreaPage({ onNavigate, onBack }: GrownUpsAreaPageProps) {
-  const [soundEnabled, setSoundEnabled] = useState(getPreferences().soundEnabled);
+export default function GrownUpsAreaPage({ onNavigate, onBack, onNavigateToSafety }: GrownUpsAreaPageProps) {
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+
+  useEffect(() => {
+    const prefs = getPreferences();
+    setSoundEnabled(prefs.soundEnabled);
+  }, []);
 
   const handleSoundToggle = (checked: boolean) => {
     setSoundEnabled(checked);
@@ -41,7 +50,6 @@ export default function GrownUpsAreaPage({ onNavigate, onBack }: GrownUpsAreaPag
     if (showResetConfirm) {
       resetTracker();
       setShowResetConfirm(false);
-      alert('Tracker has been reset');
     } else {
       setShowResetConfirm(true);
       setTimeout(() => setShowResetConfirm(false), 3000);
@@ -49,9 +57,8 @@ export default function GrownUpsAreaPage({ onNavigate, onBack }: GrownUpsAreaPag
   };
 
   return (
-    <ScreenLayout title="Grown-ups area" showDisclaimer={false}>
-      <div className="space-y-6 max-w-md mx-auto">
-        {/* Back button */}
+    <ScreenLayout title="Grown-ups Area" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
+      <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}
           variant="ghost"
@@ -61,65 +68,56 @@ export default function GrownUpsAreaPage({ onNavigate, onBack }: GrownUpsAreaPag
           Go back
         </Button>
 
-        {/* Sound toggle */}
-        <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6">
+        {/* Controls */}
+        <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-6">
+          <h2 className="text-xl font-bold text-app-text">Settings</h2>
+          
           <div className="flex items-center justify-between">
-            <Label htmlFor="sound-toggle" className="text-lg font-semibold text-app-text cursor-pointer">
-              Sound
-            </Label>
-            <Switch
-              id="sound-toggle"
-              checked={soundEnabled}
-              onCheckedChange={handleSoundToggle}
-            />
+            <div className="flex items-center space-x-3">
+              {soundEnabled ? <Volume2 className="w-5 h-5 text-app-text" /> : <VolumeX className="w-5 h-5 text-app-text/50" />}
+              <span className="text-app-text font-medium">Sound effects</span>
+            </div>
+            <Switch checked={soundEnabled} onCheckedChange={handleSoundToggle} />
           </div>
-          <p className="text-app-text/70 text-sm mt-2">
-            {soundEnabled ? 'Gentle chimes are on' : 'Gentle chimes are off'}
-          </p>
-        </Card>
 
-        {/* Reset tracker */}
-        <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6">
-          <Button
-            onClick={handleResetTracker}
-            variant="outline"
-            className={`w-full h-12 text-base font-semibold rounded-2xl ${
-              showResetConfirm ? 'bg-app-important border-app-important' : ''
-            }`}
-          >
-            {showResetConfirm ? 'Tap again to confirm' : 'Reset tracker'}
-          </Button>
-          <p className="text-app-text/70 text-sm mt-2 text-center">
-            Clear all saved daily feelings
-          </p>
+          <div className="pt-4 border-t border-app-text/10">
+            <Button
+              onClick={handleResetTracker}
+              variant="outline"
+              className="w-full flex items-center justify-center space-x-2 border-2 border-app-text/20 hover:bg-app-button/20"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span>{showResetConfirm ? 'Click again to confirm reset' : 'Reset daily feelings tracker'}</span>
+            </Button>
+          </div>
         </Card>
 
         {/* Information pages */}
-        <div className="space-y-3 pt-4">
+        <div className="space-y-3">
           <Button
             onClick={() => onNavigate('grownups-parents')}
-            className="w-full h-14 text-base font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl"
+            className="w-full h-14 text-lg font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl justify-start px-6"
           >
             For Parents & Teachers
           </Button>
 
           <Button
             onClick={() => onNavigate('grownups-teacher')}
-            className="w-full h-14 text-base font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl"
+            className="w-full h-14 text-lg font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl justify-start px-6"
           >
             Teacher Quick Guide
           </Button>
 
           <Button
             onClick={() => onNavigate('grownups-about')}
-            className="w-full h-14 text-base font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl"
+            className="w-full h-14 text-lg font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl justify-start px-6"
           >
-            About
+            About this app
           </Button>
 
           <Button
             onClick={() => onNavigate('grownups-privacy')}
-            className="w-full h-14 text-base font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl"
+            className="w-full h-14 text-lg font-medium bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl justify-start px-6"
           >
             Privacy & Safety
           </Button>

@@ -7,9 +7,10 @@ import { ArrowLeft } from 'lucide-react';
 interface GrownUpsLockPageProps {
   onSuccess: () => void;
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function GrownUpsLockPage({ onSuccess, onBack }: GrownUpsLockPageProps) {
+export default function GrownUpsLockPage({ onSuccess, onBack, onNavigateToSafety }: GrownUpsLockPageProps) {
   const [stage, setStage] = useState<'hold' | 'math'>('hold');
   const [isHolding, setIsHolding] = useState(false);
   const [holdProgress, setHoldProgress] = useState(0);
@@ -81,7 +82,7 @@ export default function GrownUpsLockPage({ onSuccess, onBack }: GrownUpsLockPage
   const skipHold = 'ontouchstart' in window && stage === 'hold';
 
   return (
-    <ScreenLayout showDisclaimer={false}>
+    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="flex flex-col items-center space-y-8">
         {/* Back button */}
         <div className="w-full max-w-md">
@@ -167,18 +168,20 @@ export default function GrownUpsLockPage({ onSuccess, onBack }: GrownUpsLockPage
                   value={mathAnswer}
                   onChange={(e) => setMathAnswer(e.target.value)}
                   placeholder="Your answer"
-                  className="text-center text-2xl h-16 bg-white border-2 border-app-text/20 rounded-2xl"
+                  className="text-center text-2xl h-16 bg-app-card border-2 border-app-text/20 rounded-2xl"
                   autoFocus
                 />
-                {errorMessage && (
-                  <p className="text-lg text-red-500 font-medium animate-fade-in">
-                    {errorMessage}
-                  </p>
-                )}
               </div>
-              <Button 
+
+              {errorMessage && (
+                <p className="text-center text-app-important font-medium animate-fade-in">
+                  {errorMessage}
+                </p>
+              )}
+
+              <Button
                 type="submit"
-                className="w-full h-16 text-xl font-semibold bg-app-button hover:bg-app-button/90 text-app-text rounded-2xl"
+                className="w-full h-14 text-lg font-semibold bg-app-button hover:bg-app-button/90 text-app-text rounded-3xl"
               >
                 Check answer
               </Button>

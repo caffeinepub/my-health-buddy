@@ -5,11 +5,12 @@ import { ArrowLeft } from 'lucide-react';
 
 interface FeelBetterPageProps {
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function FeelBetterPage({ onBack }: FeelBetterPageProps) {
+export default function FeelBetterPage({ onBack, onNavigateToSafety }: FeelBetterPageProps) {
   return (
-    <ScreenLayout helperMessage="You're doing the right thing.">
+    <ScreenLayout helperMessage="You're doing the right thing." onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-8">
         {/* Back button */}
         <Button

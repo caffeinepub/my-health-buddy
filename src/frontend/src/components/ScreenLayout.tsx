@@ -5,10 +5,23 @@ interface ScreenLayoutProps {
   children: ReactNode;
   helperMessage?: string;
   showDisclaimer?: boolean;
+  disclaimerText?: string;
   noScroll?: boolean;
+  onNavigateToSafety?: () => void;
 }
 
-export default function ScreenLayout({ title, children, helperMessage, showDisclaimer = true, noScroll = false }: ScreenLayoutProps) {
+export default function ScreenLayout({ 
+  title, 
+  children, 
+  helperMessage, 
+  showDisclaimer = true, 
+  disclaimerText,
+  noScroll = false, 
+  onNavigateToSafety 
+}: ScreenLayoutProps) {
+  const defaultDisclaimer = "This app helps children show how you feel. It does not give medical advice.";
+  const displayDisclaimer = disclaimerText || defaultDisclaimer;
+
   return (
     <div className="min-h-screen flex flex-col bg-app-background">
       {/* Header logo */}
@@ -32,7 +45,7 @@ export default function ScreenLayout({ title, children, helperMessage, showDiscl
         {children}
       </div>
 
-      {/* Helper message and disclaimer at bottom */}
+      {/* Helper message, disclaimer, and footer at bottom */}
       <div className="pb-8 px-6 space-y-3">
         {helperMessage && (
           <p className="text-center text-app-text/80 text-base leading-relaxed">
@@ -41,8 +54,18 @@ export default function ScreenLayout({ title, children, helperMessage, showDiscl
         )}
         {showDisclaimer && (
           <p className="text-center text-app-text/50 text-xs leading-relaxed">
-            This app helps children show how you feel. It does not give medical advice.
+            {displayDisclaimer}
           </p>
+        )}
+        {onNavigateToSafety && (
+          <div className="flex justify-center pt-2">
+            <button
+              onClick={onNavigateToSafety}
+              className="text-app-text/60 hover:text-app-text/80 text-xs underline transition-colors"
+            >
+              Safety Notice
+            </button>
+          </div>
         )}
       </div>
     </div>

@@ -3,11 +3,12 @@ import ScreenLayout from '../components/ScreenLayout';
 
 interface LocationPageProps {
   onLocationSelected: (location: string) => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function LocationPage({ onLocationSelected }: LocationPageProps) {
+export default function LocationPage({ onLocationSelected, onNavigateToSafety }: LocationPageProps) {
   return (
-    <ScreenLayout showDisclaimer={false}>
+    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="flex flex-col items-center space-y-8">
         {/* Luma */}
         <div className="w-32 h-32">

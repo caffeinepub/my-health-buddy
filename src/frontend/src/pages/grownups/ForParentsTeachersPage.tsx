@@ -5,11 +5,12 @@ import { ArrowLeft } from 'lucide-react';
 
 interface ForParentsTeachersPageProps {
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function ForParentsTeachersPage({ onBack }: ForParentsTeachersPageProps) {
+export default function ForParentsTeachersPage({ onBack, onNavigateToSafety }: ForParentsTeachersPageProps) {
   return (
-    <ScreenLayout title="For Parents & Teachers" showDisclaimer={false}>
+    <ScreenLayout title="For Parents & Teachers" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}
@@ -23,10 +24,10 @@ export default function ForParentsTeachersPage({ onBack }: ForParentsTeachersPag
         <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
           <h2 className="text-xl font-bold text-app-text">What is My Health Buddy?</h2>
           <p className="text-app-text/80 leading-relaxed">
-            My Health Buddy is a gentle helper app designed to support children in communicating how they feel when words are hard to find.
+            My Health Buddy is a simple communication tool designed to help children express physical discomfort and emotional needs when they find it difficult to speak up.
           </p>
           <p className="text-app-text/80 leading-relaxed">
-            It's not a medical tool and doesn't diagnose anything. Instead, it provides a safe, friendly way for children to show trusted grown-ups what their body is experiencing.
+            The app guides children through selecting how they feel and where they are, then displays a clear message for an adult to see.
           </p>
         </Card>
 
@@ -34,29 +35,40 @@ export default function ForParentsTeachersPage({ onBack }: ForParentsTeachersPag
           <h2 className="text-xl font-bold text-app-text">How to use it</h2>
           <ul className="space-y-3 text-app-text/80">
             <li className="flex items-start">
-              <span className="mr-3 text-xl">👉</span>
-              <span>Let the child explore the app at their own pace</span>
+              <span className="mr-3">1.</span>
+              <span>Let the child explore the app in a calm moment so they know how it works</span>
             </li>
             <li className="flex items-start">
-              <span className="mr-3 text-xl">👉</span>
-              <span>When they tap a feeling, be ready to check on them</span>
+              <span className="mr-3">2.</span>
+              <span>When they use it to show you something, respond with care and attention</span>
             </li>
             <li className="flex items-start">
-              <span className="mr-3 text-xl">👉</span>
-              <span>Use it as a starting point for conversation</span>
+              <span className="mr-3">3.</span>
+              <span>Use it as a starting point for conversation, not a replacement for talking</span>
             </li>
             <li className="flex items-start">
-              <span className="mr-3 text-xl">👉</span>
-              <span>The app works offline and collects no data</span>
+              <span className="mr-3">4.</span>
+              <span>The daily feelings tracker can help spot patterns over time</span>
             </li>
           </ul>
         </Card>
 
         <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
-          <h2 className="text-xl font-bold text-app-text">Important</h2>
-          <p className="text-app-text/80 leading-relaxed">
-            This app is a communication helper, not a replacement for medical advice. If a child is unwell or in distress, please seek appropriate professional support.
-          </p>
+          <h2 className="text-xl font-bold text-app-text">Important notes</h2>
+          <ul className="space-y-3 text-app-text/80">
+            <li className="flex items-start">
+              <span className="mr-3">•</span>
+              <span>This app does not diagnose medical conditions</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3">•</span>
+              <span>Always follow your professional judgment and safeguarding procedures</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3">•</span>
+              <span>If you have concerns about a child's health or safety, seek appropriate professional support</span>
+            </li>
+          </ul>
         </Card>
       </div>
     </ScreenLayout>

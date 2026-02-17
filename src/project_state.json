@@ -1,75 +1,48 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Update and improve the “My Health Buddy” app to be simpler, child-friendly, and fully functional, including UI flow simplifications, copy changes, a prominent help button flow, and a working gated “Grown-ups only” settings access.",
-  "architectural_notes": [
-    "Keep the app calm, simple, child-friendly, and easy to understand across all screens and flows.",
-    "Grown-ups only gate should support a fallback path if press-and-hold is not supported (maths-only access)."
-  ],
+  "summary": "Content and copy updates for Safety Notice, Privacy, and home screen disclaimers aimed at a child-focused app with adult supervision guidance.",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-rename-the-helper-character-from-amanda-to-luma-everywhere-in-the-app-and-update-the-greeting-copy-to-exactly-hi-i-m-luma-i-help-you-show-how-you-feel",
-      "title": "Rename the helper character from “Amanda” to “Luma” everywhere in the app, and update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
+      "id": "feature-update-the-safety-notice-page-to-include-1-an-added-emergency-guidance-paragraph-block-that-says-if-you-are-in-immediate-danger-call-your-local-emergency-number-followed-by-in-many-countries-this-is-112-or-911-followed-by-ask-a-grown-up-to-help-you-call-and-2-an-added-age-range-line-that-says-designed-for-children-ages-4-12-with-adult-supervision",
+      "title": "Update the Safety Notice page to include: (1) an added emergency guidance paragraph block that says: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"; and (2) an added age range line that says: \"Designed for children ages 4–12 with adult supervision.\"",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-simplify-supportive-wording-by-replacing-the-specified-longer-sentences-with-the-specified-short-phrases-wherever-they-appear-in-the-app-ui",
-      "title": "Simplify supportive wording by replacing the specified longer sentences with the specified short phrases wherever they appear in the app UI.",
+      "id": "feature-update-the-privacy-safety-page-to-add-the-exact-line-the-app-works-fully-offline-and-does-not-send-information-anywhere",
+      "title": "Update the Privacy & Safety page to add the exact line: “The app works fully offline and does not send information anywhere.”",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-improve-the-first-screen-so-it-only-shows-1-the-logo-2-the-luma-character-and-3-one-large-start-button-move-all-other-menu-options-to-a-separate-next-screen-that-appears-after-start-is-pressed",
-      "title": "Improve the first screen so it only shows: (1) the logo, (2) the Luma character, and (3) one large “Start” button. Move all other menu options to a separate next screen that appears after “Start” is pressed.",
+      "id": "feature-shorten-the-home-main-menu-screen-disclaimer-text-to-only-not-medical-advice",
+      "title": "Shorten the home (main menu) screen disclaimer text to only: “Not medical advice.”",
       "reqIds": [
         "REQ-3"
       ],
       "version": 1
     },
     {
-      "id": "feature-make-the-show-this-to-an-adult-button-the-largest-and-most-visually-prominent-button-in-the-entire-app-and-center-it-on-its-screen",
-      "title": "Make the “Show this to an adult” button the largest and most visually prominent button in the entire app, and center it on its screen.",
+      "id": "feature-update-the-grown-ups-entry-point-label-on-the-menu-screen-to-parents-teachers-caregivers-only",
+      "title": "Update the grown-ups entry point label on the Menu screen to: “Parents, Teachers & Caregivers Only”.",
       "reqIds": [
         "REQ-4"
       ],
       "version": 1
     },
     {
-      "id": "feature-remove-scrolling-on-the-feelings-selection-page-by-resizing-and-laying-out-the-feeling-option-cards-evenly-so-all-feeling-options-are-visible-on-one-screen-at-once",
-      "title": "Remove scrolling on the feelings selection page by resizing and laying out the feeling option cards evenly so all feeling options are visible on one screen at once.",
+      "id": "feature-update-the-help-message-copy-to-show-this-to-a-trusted-adult",
+      "title": "Update the help message copy to: “Show this to a trusted adult”.",
       "reqIds": [
         "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-new-location-follow-up-screen-after-the-user-presses-the-main-help-button-the-new-screen-must-ask-where-are-you-and-provide-three-large-buttons-at-school-at-home-outside",
-      "title": "Add a new location follow-up screen after the user presses the main help button. The new screen must ask “Where are you?” and provide three large buttons: “At school”, “At home”, “Outside”.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-fix-the-grown-ups-only-section-so-it-is-a-real-working-button-that-opens-a-lock-screen-flow-require-the-user-to-press-and-hold-a-star-for-3-seconds-and-then-answer-a-simple-math-question-e-g-7-3-show-the-exact-error-message-try-again-grown-ups-only-on-wrong-answer-and-open-the-settings-page-on-correct-answer-if-press-and-hold-is-not-supported-require-only-the-math-question-before-access",
-      "title": "Fix the “Grown-ups only” section so it is a real, working button that opens a lock screen flow: require the user to press-and-hold a star for 3 seconds and then answer a simple math question (e.g., 7 + 3). Show the exact error message “Try again, grown-ups only” on wrong answer and open the settings page on correct answer. If press-and-hold is not supported, require only the math question before access.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-all-updated-and-new-screens-maintain-a-calm-simple-child-friendly-presentation-with-short-easy-to-understand-english-ui-text",
-      "title": "Ensure all updated and new screens maintain a calm, simple, child-friendly presentation with short, easy-to-understand English UI text.",
-      "reqIds": [
-        "REQ-8"
       ],
       "version": 1
     }
@@ -77,43 +50,31 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Rename helper character from “Amanda” to “Luma” everywhere and update greeting text to: “Hi, I’m Luma. I help you show how you feel.”",
+      "summary": "Add Emergency Guidance section to Safety Notice page (call local emergency number; 112/911; ask a grown-up to help)",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Simplify supportive wording by replacing longer sentences with short phrases (e.g., “Let’s tell a grown-up” and “You did the right thing 💛”).",
+      "summary": "Add age range line to Safety Notice page: “Designed for children ages 4–12 with adult supervision.”",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-3",
-      "summary": "Make “Show this to an adult” the largest, centered, most prominent button in the app.",
+      "summary": "Add Privacy page line: “The app works fully offline and does not send information anywhere.”",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-4",
-      "summary": "Remove scrolling on feelings page by fitting all feeling options on one screen via evenly resized cards (all options visible at once).",
+      "summary": "Shorten home screen disclaimer to only: “Not medical advice.”",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-5",
-      "summary": "Add location follow-up screen after pressing the help button: question “Where are you?” with buttons At school / At home / Outside.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Simplify first screen to only show Logo, Luma character, and one large Start button; move other menu options to the next screen after Start.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Fix “Grown-ups only” section: make it a working button that opens a lock screen requiring press-and-hold star for 3 seconds then a simple maths question; wrong answer message; fallback to maths-only if press-and-hold unsupported; correct answer opens settings.",
+      "summary": "Update label to “Parents, Teachers & Caregivers Only” and help message to “Show this to a trusted adult”",
       "reqIds": [],
       "status": "pending"
     }

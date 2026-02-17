@@ -17,15 +17,21 @@ type Screen =
   | 'grownups-parents'
   | 'grownups-teacher'
   | 'grownups-about'
-  | 'grownups-privacy';
+  | 'grownups-privacy'
+  | 'safety-notice';
 
 interface MenuPageProps {
   onNavigate: (screen: Screen) => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function MenuPage({ onNavigate }: MenuPageProps) {
+export default function MenuPage({ onNavigate, onNavigateToSafety }: MenuPageProps) {
   return (
-    <ScreenLayout showDisclaimer={true}>
+    <ScreenLayout 
+      showDisclaimer={true} 
+      disclaimerText="Not medical advice."
+      onNavigateToSafety={onNavigateToSafety}
+    >
       <div className="flex flex-col items-center space-y-6">
         {/* Luma character */}
         <div className="w-32 h-32">
@@ -77,12 +83,12 @@ export default function MenuPage({ onNavigate }: MenuPageProps) {
             <div className="w-16 h-16">
               <img 
                 src="/assets/generated/pulse-star.dim_512x512.png" 
-                alt="Grown-ups only" 
+                alt="Parents, Teachers & Caregivers Only" 
                 className="w-full h-full object-contain"
               />
             </div>
             <span className="text-sm font-medium text-app-text/70">
-              Grown-ups only
+              Parents, Teachers & Caregivers Only
             </span>
           </Button>
         </div>

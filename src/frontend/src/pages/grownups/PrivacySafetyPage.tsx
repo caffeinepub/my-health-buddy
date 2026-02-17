@@ -5,11 +5,12 @@ import { ArrowLeft } from 'lucide-react';
 
 interface PrivacySafetyPageProps {
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function PrivacySafetyPage({ onBack }: PrivacySafetyPageProps) {
+export default function PrivacySafetyPage({ onBack, onNavigateToSafety }: PrivacySafetyPageProps) {
   return (
-    <ScreenLayout title="Privacy & Safety" showDisclaimer={false}>
+    <ScreenLayout title="Privacy & Safety" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}
@@ -21,9 +22,15 @@ export default function PrivacySafetyPage({ onBack }: PrivacySafetyPageProps) {
         </Button>
 
         <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
-          <h2 className="text-xl font-bold text-app-text">No information is collected</h2>
+          <h2 className="text-xl font-bold text-app-text">No data collection or tracking</h2>
           <p className="text-app-text/80 leading-relaxed">
-            My Health Buddy does not collect, store, or share any personal information. Everything stays on your device.
+            My Health Buddy does not collect, store, or share any personal information. There is no data collection of any kind, and no tracking or analytics.
+          </p>
+          <p className="text-app-text/80 leading-relaxed">
+            Everything stays on your device. We do not know who uses this app, when they use it, or what they select.
+          </p>
+          <p className="text-app-text/80 leading-relaxed">
+            The app works fully offline and does not send information anywhere.
           </p>
         </Card>
 
@@ -41,6 +48,10 @@ export default function PrivacySafetyPage({ onBack }: PrivacySafetyPageProps) {
             <li className="flex items-start">
               <span className="mr-3">✓</span>
               <span>No ads or tracking</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3">✓</span>
+              <span>No analytics or data collection</span>
             </li>
             <li className="flex items-start">
               <span className="mr-3">✓</span>

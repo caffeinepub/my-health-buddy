@@ -5,9 +5,10 @@ import { getPreferences } from '../state/preferences';
 
 interface AdultMessagePageProps {
   onComplete: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function AdultMessagePage({ onComplete }: AdultMessagePageProps) {
+export default function AdultMessagePage({ onComplete, onNavigateToSafety }: AdultMessagePageProps) {
   const [showEncouragement, setShowEncouragement] = useState(false);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function AdultMessagePage({ onComplete }: AdultMessagePageProps) 
   };
 
   return (
-    <ScreenLayout showDisclaimer={false}>
+    <ScreenLayout showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="flex flex-col items-center space-y-8">
         {/* Alert icon */}
         <div className="w-32 h-32 bg-app-important rounded-full flex items-center justify-center">

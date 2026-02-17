@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 interface FeelingsButtonPageProps {
   onFeelingSelected: (feeling: string) => void;
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
 const feelings = [
@@ -21,9 +22,9 @@ const feelings = [
   { label: 'I need a break', icon: '/assets/generated/feel-need-break.dim_256x256.png' },
 ];
 
-export default function FeelingsButtonPage({ onFeelingSelected, onBack }: FeelingsButtonPageProps) {
+export default function FeelingsButtonPage({ onFeelingSelected, onBack, onNavigateToSafety }: FeelingsButtonPageProps) {
   return (
-    <ScreenLayout title="Tap what your body feels like" noScroll={true}>
+    <ScreenLayout title="What hurts?" noScroll={true} onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-4">
         {/* Back button */}
         <Button

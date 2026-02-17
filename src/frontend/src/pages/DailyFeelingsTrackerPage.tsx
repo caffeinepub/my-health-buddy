@@ -7,9 +7,10 @@ import { addTrackerEntry, getRecentEntries, type TrackerEntry } from '../state/t
 
 interface DailyFeelingsTrackerPageProps {
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function DailyFeelingsTrackerPage({ onBack }: DailyFeelingsTrackerPageProps) {
+export default function DailyFeelingsTrackerPage({ onBack, onNavigateToSafety }: DailyFeelingsTrackerPageProps) {
   const [recentEntries, setRecentEntries] = useState<TrackerEntry[]>([]);
   const [justAdded, setJustAdded] = useState(false);
 
@@ -46,7 +47,7 @@ export default function DailyFeelingsTrackerPage({ onBack }: DailyFeelingsTracke
   };
 
   return (
-    <ScreenLayout title="Daily feelings" helperMessage="How are you feeling today?">
+    <ScreenLayout title="Daily feelings" helperMessage="How are you feeling today?" onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-8">
         {/* Back button */}
         <Button

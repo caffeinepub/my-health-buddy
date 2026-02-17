@@ -1,58 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-17T08:02:03.366Z",
-  "summary": "Most requested UI-flow changes appear implemented (new Start->Menu flow, location step, prominent adult button, feelings grid, grown-ups lock screen and navigation). One clear copy requirement mismatch is present for the exact Welcome greeting punctuation/text. Several additional non-requested enhancements (PWA/manifest, audio/vibration, theming) were introduced.",
+  "generatedAt": "2026-02-17T09:16:36.837Z",
+  "summary": "REQ-2, REQ-3, REQ-4, and REQ-5 appear implemented in the shown diffs. REQ-1 is partially implemented but the emergency guidance sentences are not included exactly as specified (punctuation differs). The diff also introduces a new global Safety Notice footer link/navigation hook in ScreenLayout that was not requested and may exceed the copy-only/navigation constraints.",
   "missing_requirements": [
     {
       "id": "REQ-1",
-      "requirement": "Update the greeting copy to exactly: “Hi, I’m Luma. I help you show how you feel.”",
-      "reason": "The Welcome screen greeting text does not match exactly; it uses a straight apostrophe (\"I'm\") instead of the required curly apostrophe (\"I’m\").",
+      "requirement": "Emergency Guidance section includes the three new sentences exactly as provided: \"If you are in immediate danger, call your local emergency number\" followed by \"In many countries this is 112 or 911.\" followed by \"Ask a grown-up to help you call.\"",
+      "reason": "The three sentences appear, but the first sentence is not exactly as provided because the implementation adds a period at the end of the first sentence (\"...number.\") whereas the requirement text omits it; AC requires the sentences exactly as provided.",
       "evidence": [
-        "frontend/src/pages/WelcomePage.tsx"
+        "frontend/src/pages/SafetyNoticePage.tsx"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Progressive Web App (PWA) support via web manifest and related HTML/favicon changes",
-      "reason": "BuildRequest does not ask for PWA/manifest functionality; these are additional platform features beyond the specified UI flow and copy changes.",
+      "description": "Added a global \"Safety Notice\" footer link/button driven by a new onNavigateToSafety prop in ScreenLayout.",
+      "reason": "BuildRequest only asked for copy updates on specific screens; it did not request adding a persistent Safety Notice navigation element across screens, and it explicitly limits navigation changes beyond what is needed to display updated copy.",
       "evidence": [
-        "frontend/index.html",
-        "frontend/public/site.webmanifest"
+        "frontend/src/components/ScreenLayout.tsx",
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/pages/FeelingConfirmationPage.tsx",
+        "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
+        "frontend-file-summaries.txt (multiple pages noted as \"includes Safety Notice footer link\")"
       ]
     },
     {
-      "description": "Audio chime playback and device vibration on the adult message screen",
-      "reason": "BuildRequest only specifies UI copy and flow; adding sound/vibration behavior is not requested.",
+      "description": "Changed/introduced a new default disclaimer string in ScreenLayout (\"This app helps children show how you feel. It does not give medical advice.\")",
+      "reason": "REQ-3 only required changing the Menu screen disclaimer to exactly \"Not medical advice.\"; it did not request altering the app-wide default disclaimer text.",
       "evidence": [
-        "frontend/src/pages/AdultMessagePage.tsx",
-        "frontend/src/state/preferences.ts"
-      ]
-    },
-    {
-      "description": "Major new global theming/animation system (OKLCH color tokens, new animations) and Tailwind token expansion",
-      "reason": "Not explicitly requested; REQ-8 is about calm/child-friendly text and presentation but does not require introducing a new theming system.",
-      "evidence": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
+        "frontend/src/components/ScreenLayout.tsx"
       ]
     }
   ],
-  "confidence": 0.62,
+  "confidence": 0.72,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/App.tsx",
-    "frontend/src/components/GrownUpsGate.tsx",
     "frontend/src/components/ScreenLayout.tsx",
-    "frontend/src/pages/AdultMessagePage.tsx",
-    "frontend/src/pages/EnergyCheckPage.tsx",
     "frontend/src/pages/FeelingConfirmationPage.tsx",
-    "frontend/src/pages/FeelingsButtonPage.tsx",
-    "frontend/src/pages/LocationPage.tsx",
     "frontend/src/pages/MenuPage.tsx",
-    "frontend/src/pages/WelcomePage.tsx",
-    "frontend/src/pages/grownups/GrownUpsLockPage.tsx",
+    "frontend/src/pages/SafetyNoticePage.tsx",
+    "frontend/src/pages/grownups/PrivacySafetyPage.tsx",
     "project_state.json"
   ]
 }

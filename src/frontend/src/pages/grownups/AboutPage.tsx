@@ -1,15 +1,21 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import ScreenLayout from '../../components/ScreenLayout';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 
 interface AboutPageProps {
   onBack: () => void;
+  onNavigateToSafety: () => void;
 }
 
-export default function AboutPage({ onBack }: AboutPageProps) {
+export default function AboutPage({ onBack, onNavigateToSafety }: AboutPageProps) {
+  const currentYear = new Date().getFullYear();
+  const appIdentifier = typeof window !== 'undefined' 
+    ? encodeURIComponent(window.location.hostname)
+    : 'unknown-app';
+
   return (
-    <ScreenLayout title="About" showDisclaimer={false}>
+    <ScreenLayout title="About" showDisclaimer={false} onNavigateToSafety={onNavigateToSafety}>
       <div className="space-y-6 max-w-2xl mx-auto">
         <Button
           onClick={onBack}
@@ -20,53 +26,60 @@ export default function AboutPage({ onBack }: AboutPageProps) {
           Go back
         </Button>
 
-        <div className="flex justify-center py-4">
-          <img 
-            src="/assets/generated/pulse-star.dim_512x512.png" 
-            alt="Pulse" 
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-
         <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
-          <h2 className="text-xl font-bold text-app-text text-center">Hi, I'm Amanda (Pulse) 💫</h2>
-          <div className="space-y-4 text-app-text/80 leading-relaxed">
-            <p>
-              I was made by someone who wanted to help kids like you.
-            </p>
-            <p>
-              Sometimes it's really hard to explain how your body feels, especially when you're not feeling well or you're worried about something.
-            </p>
-            <p>
-              I'm here to help you show grown-ups what's going on, so they can understand and help you feel better.
-            </p>
-            <p>
-              You're never alone, and it's always okay to ask for help. 💚
-            </p>
+          <div className="flex justify-center pb-4">
+            <img 
+              src="/assets/generated/pulse-star.dim_512x512.png" 
+              alt="Luma" 
+              className="w-24 h-24 object-contain animate-pulse-gentle"
+            />
           </div>
+          <h2 className="text-xl font-bold text-app-text text-center">Hi, I'm Luma!</h2>
+          <p className="text-app-text/80 leading-relaxed">
+            I was made to help children like you show grown-ups how you feel when it's hard to find the words.
+          </p>
+          <p className="text-app-text/80 leading-relaxed">
+            Sometimes your tummy hurts, or your head feels funny, or you just need a break. That's okay! I'm here to help you tell someone.
+          </p>
         </Card>
 
         <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
           <h2 className="text-xl font-bold text-app-text">Why I was made</h2>
           <p className="text-app-text/80 leading-relaxed">
-            Every child deserves to be understood. This app was created to give children a voice when words feel too hard, and to help grown-ups know when a child needs support.
+            Some children find it tricky to speak up when they don't feel well. Maybe they're shy, or worried, or just don't know how to explain it.
+          </p>
+          <p className="text-app-text/80 leading-relaxed">
+            I help by giving you buttons to press and pictures to show. Then a grown-up can see what you need and help you feel better.
           </p>
         </Card>
 
-        <div className="text-center pt-4">
+        <Card className="bg-app-card border-2 border-app-text/10 rounded-3xl p-6 space-y-4">
+          <h2 className="text-xl font-bold text-app-text">You're doing great</h2>
+          <p className="text-app-text/80 leading-relaxed">
+            Remember: it's always okay to tell someone when you need help. You're being really brave by using this app.
+          </p>
+          <p className="text-app-text/80 leading-relaxed">
+            The grown-ups around you care about you and want to make sure you're okay. 💚
+          </p>
+        </Card>
+
+        {/* Attribution footer */}
+        <div className="pt-8 pb-4 text-center space-y-2">
           <p className="text-app-text/60 text-sm">
-            Built with love using{' '}
+            © {currentYear} My Health Buddy
+          </p>
+          <p className="text-app-text/60 text-sm flex items-center justify-center space-x-1">
+            <span>Built with</span>
+            <Heart className="w-4 h-4 text-app-important fill-current" />
+            <span>using</span>
             <a 
-              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
+              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-app-text/80"
+              className="underline hover:text-app-text/80 transition-colors"
             >
               caffeine.ai
             </a>
-          </p>
-          <p className="text-app-text/60 text-xs mt-2">
-            © {new Date().getFullYear()} My Health Buddy
           </p>
         </div>
       </div>
